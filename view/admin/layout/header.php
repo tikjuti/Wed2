@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col p-2">
         <div class="category">
+            <i onclick="showContentLeft()" class="fa-solid fa-bars header-icon"></i>
             <h3 class="category_heading">
-                PhoneShop
+                <span>PhoneShop</span>
             </h3>
         </div>
     </div>
@@ -13,9 +14,10 @@
         </div>
     </div>
     <div class="col p-2">
-        <span class="header-account-name">
+        <!-- <span class="header-account-name">
             Xin chào ADMIN
-        </span>
-        <a href="" class="logout">Đăng xuất</a>
+        </span> -->
+        <button onclick="showFormSignUp()">Đăng kí</button>
+        <button onclick="showFormLogin()">Đăng nhập</button>
     </div>
 </div>
