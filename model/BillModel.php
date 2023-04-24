@@ -1,37 +1,32 @@
 <?php
 
-$connect = mysqli_connect('localhost', 'root', '', 'wednangcao');
-mysqli_set_charset($connect, 'utf8');
+if ($action == "billstatus")
+    require 'Connect.php';
+else
+    require 'model/Connect.php';
 
 switch ($action) {
     case '':
-        $sql = "select * from hoadon";
-        $result = mysqli_query($connect, $sql);
+        $sql = "select * 
+            from hoadon
+            join khachhang on hoadon.MaKH = khachhang.MaKH
+            join nhanvien on hoadon.MaNV = nhanvien.MaNV";
+        $result = (new Connnect())->select($sql);
         break;
-        // case 'store':
-        //     $sql = "insert into sanpham(tenSP, anhSP, giaSP)
-        //     values ('$ten', '$anh', '$gia')";
-        //     mysqli_query($connect, $sql);
-        //     break;
     case 'billdetail':
-        $sql = "select * from hoadon
-            where MaHD ='$ma'";
-        $result = mysqli_query($connect, $sql);
+        $sql = "select * 
+            from hoadon
+            join cthoadon on hoadon.MaHD = cthoadon.MaHD
+            join sanpham on cthoadon.MaSP = sanpham.MaSP
+            where hoadon.MaHD ='$ma'";
+        $result = (new Connnect())->select($sql);
         $each = mysqli_fetch_array($result);
         break;
-        // case 'update':
-        //     $sql = "update sanpham
-        //     set 
-        //         TenSP = '$ten',
-        //         AnhSP = '$anh',
-        //         GiaSP = '$gia'
-        //     where MaSP ='$ma'";
-        //     mysqli_query($connect, $sql);
-        //     break;
-        // case 'delete':
-        //     $sql = "delete from sanpham
-        //     where maSP ='$ma'";
-        //     mysqli_query($connect, $sql);
-        //     break;
+    case 'billstatus':
+        $sql = "update hoadon
+            set 
+                TinhTrang = '$status'
+            where MaHD ='$ma'";
+        (new Connnect())->excute($sql);
+        break;
 }
-mysqli_close($connect);

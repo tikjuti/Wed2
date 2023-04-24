@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../public/css/reset.css">
 <h1>
     Danh sách sản phẩm.
 </h1>
@@ -5,7 +6,7 @@
 <a href="?action=create&controller=product">
     Thêm sản phẩm
 </a>
-<table>
+<table class="table-product">
     <tr>
         <th>Mã sản phẩm</th>
         <th>Tên sản phẩm</th>
@@ -16,18 +17,18 @@
     </tr>
     <?php foreach ($result as $each) { ?>
         <tr>
-            <td><?php echo $each['maSP'] ?></td>
-            <td><?php echo $each['tenSP'] ?></td>
-            <td><?php echo $each['anhSP'] ?></td>
-            <td><?php echo $each['giaSP'] ?></td>
+            <td><?php echo $each['MaSP'] ?></td>
+            <td><?php echo $each['TenSP'] ?></td>
+            <td><?php echo $each['AnhSP'] ?></td>
+            <td><?php echo $each['GiaSP'] ?></td>
             <td>
-                <a href="?action=edit&ma=<?php echo $each['maSP'] ?>">
-                    Sửa
+                <a href="?action=edit&ma=<?php echo $each['MaSP'] ?>">
+                    <button>Sửa</button>
                 </a>
             </td>
             <td>
-                <a href="?action=delete&ma=<?php echo $each['maSP'] ?>">
-                    Xóa
+                <a href="?action=delete&ma=<?php echo $each['MaSP'] ?>">
+                    <button>Xóa</button>
                 </a>
             </td>
         </tr>

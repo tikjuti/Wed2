@@ -1,4 +1,4 @@
-<div class="col p-2">
+<div class="col p-2" id="content-left">
     <nav class="category">
         <ul class="category_list">
             <li class="category_iteam  category_iteam_active">
@@ -29,6 +29,13 @@
                 <a href="?controller=statistic" class="category_iteam_link">
                     <i class="category_iteam_link_icon4  fa-solid fa-chart-line"></i>
                     Thống kê
+                </a>
+            </li>
+
+            <li class="category_iteam">
+                <a href="?controller=authorization" class="category_iteam_link">
+                    <i class="category_iteam_link_icon4  fa-solid fa-screwdriver-wrench"></i>
+                    Phân quyền
                 </a>
             </li>
         </ul>

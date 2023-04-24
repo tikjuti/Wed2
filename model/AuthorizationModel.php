@@ -1,10 +1,13 @@
 <?php
 
-require 'model/Connect.php';
+if ($action == "delete" || $action == "update")
+    require 'Connect.php';
+else
+    require 'model/Connect.php';
 
 switch ($action) {
     case '':
-        $sql = "select * from sanpham";
+        $sql = "select * from phanquyen where IsDeleted=0";
         $result = (new Connnect())->select($sql);
         break;
     case 'store':
@@ -28,8 +31,8 @@ switch ($action) {
         (new Connnect())->excute($sql);
         break;
     case 'delete':
-        $sql = "delete from sanpham
-        where maSP ='$ma'";
+        $sql = "update phanquyen set IsDeleted = 1
+        where MaPQ ='$ma'";
         (new Connnect())->excute($sql);
         break;
 }

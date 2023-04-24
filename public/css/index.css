@@ -27,6 +27,15 @@
     border: 1px solid black;
     cursor: pointer;
 }
+.header-icon {
+  position: absolute;
+  font-size: 1.4rem;
+  left: 30px;
+  top: 34px;
+}
+.header-icon:hover {
+  cursor: pointer;
+}
 
 .header-account-name {
     font-size: 1.2rem;
@@ -50,7 +59,7 @@
     margin-right: 22px;
 }
 
-/* Phần danh mục */
+/* Phần danh mục ----------------------------------------------------------------------------- */
 
 .category {
     background-color: var(--white_color);
@@ -117,7 +126,223 @@
     color: rgb(245, 84, 84);
 }
 
-/* Css phần Bill */
+/* CSS Phần From đắng kí đăng nhập */
+.auth_form {
+  width: 500px;
+}
+.auth_form__container {
+  padding: 0 32px;
+}
+.auth_form_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.auth_form__heading {
+  font-size: 2rem;
+  font-weight: 400;
+  color: black;
+}
+.auth_form__switch_btn {
+  font-size: 1.6rem;
+  color : red;
+  font-weight: 500;
+  cursor: pointer;
+}
+.auth_form__form {
+  margin-top: 30px;
+}
+.auth_form__input {
+  width: 100%;
+  height: 40px;
+
+  margin-bottom: 16px;
+  padding: 0 12px;
+  font-size: 1.4rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 0.5px;
+  outline: none;
+}
+.auth_form__input:focus {
+  border-color: #777;
+}
+.auth_form__controls {
+  margin-top: 80px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+.auth_form__control_back {
+  margin-right: 20px;
+  padding: 0 10px;
+}
+#formsignup {
+  display: none;
+  font-family: 'Poppins',sans-serif;
+  z-index: 2;
+}
+#formlogin {
+  display: none;
+  font-family: 'Poppins',sans-serif;
+  z-index: 2;
+}
+.auth_form__group {
+  position: relative;
+}
+.pass_icon {
+  font-size: 1.4rem;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  cursor: pointer;
+  font-weight: 100;
+}
+#fullnameerror{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#phoneerror{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#usernameerror{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#passerror{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#repasserror{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#usernameloginerror {
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#passloginerror {
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#fullnameerror_acc{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#phoneerror_acc{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#usernameerror_acc{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#passerror_acc{
+  display: none;
+  font-size: 1.4rem;
+  color: red;
+}
+#useraccount {
+  width: 140px;
+}
+#eyeopen,#eyeopen2,#eyeopen3,#eyeopen_acc {
+  display: none;
+}
+/* .fa-eye:before {
+  content: "\f06e";
+  
+}
+.fa-eye-slash:before {
+  content: "\f070";
+ 
+} */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  animation: fadeIn linear 0.1s;
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@keyframes growth {
+  from {
+      transform: scale(var(--growth_from)); 
+  }
+  to {
+      transform: scale(var(--growth_to)); 
+  }
+  
+}
+.modal_overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.415);
+}
+.modal_body {
+  --growth_from: 0;
+  --growth_from: 1;
+  background-color: white;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  animation: growth linear 0.5s;
+}
+.btn {
+  min-width: 124px;
+  height: 36px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.843);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn.btn_nomal:hover {
+  background-color: rgba(0, 0, 0, 0.064);
+}
+.btn.btn_size_s {
+  height: 32px;
+  font-size: 12px;
+}
+.btn.btn__primary {
+  background-color: rgba(255, 0, 0, 0.757);
+  color: white;
+  padding: 0 10px;
+}
+.btn.btn__disable {
+  cursor: default;
+  color: #ccc;
+  background-color: #999;
+}
+
+
+/* Css phần Bill ---------------------------------------------------------------------------- */
 .table-bill {
     border: 2px solid black;
     width: 100%;
@@ -132,4 +357,168 @@
     border: 1px solid black;
     background-color: rgb(6, 160, 6);
     color: white;
+}
+.table-product {
+    border: 2px solid black;
+    width: 100%;
+    font-size: 1.4rem;
+    box-shadow: 3px 3px 5px 5px gray;
+    text-align: center;
+}
+.table-product td {
+    border: 1px solid black;
+}
+.table-product th {
+    border: 1px solid black;
+    background-color: rgb(6, 160, 6);
+    color: white;
+}
+
+/* CSS biểu đồ thống kê theo sản phẩm------------------------------------------------------------- */
+.highcharts-figure,
+.highcharts-data-table table {
+  min-width: 310px;
+  max-width: 900px;
+  margin: 1em auto;
+}
+
+#container {
+  height: 400px;
+}
+
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
+/* CSS Phần phân quyền */
+.au_main{
+  height: 100%;
+  width: 90%;
+  padding: 20px;
+  margin-left: 30px;
+  font-family: 'Righteous', cursive;
+  display: flex;
+  flex-direction: column;
+}
+
+.au_main .author_group {
+  height: 90%;
+  width: 100%;
+  margin-top: 20px;
+}
+.au_main .author_group  table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.au_main .author_group  table thead {
+  background-color: rgb(3, 145, 3);
+  width: 100%;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+}
+.au_main .author_group table thead tr {
+  border-radius: 10px;
+}
+.au_main .author_group table thead th {
+  height: 100%;
+  padding: 10px;
+}
+.au_main .author_group table tbody {
+  width: 100%;
+}
+.au_main .author_group table tbody tr {
+  text-align: center;
+  width: 100%;
+}
+.au_main .author_group table tbody tr:nth-child(odd) {
+  background-color: white;
+}
+.au_main .author_group table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+.au_main .author_group table tbody tr td {
+  padding:5px;
+}
+.au_main .author_group table tbody tr td button {
+  height: 30px;
+  width: 70px;
+  font-family: 'Righteous', cursive;
+  color: white;
+  border-radius: 7px;
+  border: unset;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.delete-customer-btn {
+  background-color: red;
+}
+.au_main .author_group table tbody tr td a .bnt-edit-authorize {
+  background-color: #2e89ff;
+}
+.au_main .author_group table tbody tr td a .bnt-edit-authorize:hover {
+  background-color: white ;
+  color: #2e89ff;
+  border: 2px solid #2e89ff;
+}
+.au_main .author_group table tbody tr td button{
+  background-color: red;
+}
+.au_main .author_group table tbody tr td button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.info-receive {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.info-receive_item {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.info-receive_total {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.btn-process-bill {
+  background-color: blue;
 }
