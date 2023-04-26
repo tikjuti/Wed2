@@ -22,8 +22,8 @@ $(document).ready(function () {
                                           'action': status
                                      },
                                     success: function () {
-                                          location.reload();
-                                  }
+                                          location.reload()
+                                    }
                             });
                       } else {
                             swal("Your imaginary file is safe!");

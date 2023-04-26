@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -117,8 +117,8 @@
 </body>
 <script src="../../public/js/header.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="public/js/customer.js"></script>
-<script src="public/js/bill.js"></script>
-<script src="public/js/authorize.js"></script>
+<script src="public/js/statistics.js"></script>
+<script src="public/js/statistics-sellproduct.js"></script>
+<script src="public/js/statistics-bestsell.js"></script>
 
 </html>

@@ -1,0 +1,19 @@
+.product{
+    color: red;
+    font-weight: bold;
+    font-size: 25px;
+}
+.price-drop{
+    color: #707070;
+    font-weight: bold;
+    font-size: 18px;
+}
+.compoment
+{
+   border: 1px solid rgba(0,0,0,.125);;
+}
+.align-midldee
+{
+    color: blue;
+    line-height: 3rem;
+}
