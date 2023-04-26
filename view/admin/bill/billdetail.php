@@ -35,7 +35,6 @@
                                 <?php
                                 if ($each['TinhTrang'] == 0)
                                     echo '<button class="btn-process-bill" value="' . $each['MaHD'] . '">Xử lý</button>';
-                                // echo '<a href="?action=billstatus&controller=bill&status=1&ma=' . $each['MaHD'] . '"> <button class="btn-process-bill">Xử lý</button> </a>';
                                 else
                                     echo 'Đã xử lý';
                                 ?>

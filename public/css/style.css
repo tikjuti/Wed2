@@ -1,0 +1,13 @@
+body
+{
+   height: 47rem; 
+}
+.box
+{
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+.form-content{
+    width: 60%;
+}

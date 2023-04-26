@@ -40,4 +40,4 @@
     </div>
 </div>
 
-<!-- <script src="public/js/customer.js"></script> -->
+<script src="public/js/customer.js"></script>

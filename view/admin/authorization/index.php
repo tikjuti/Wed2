@@ -31,12 +31,22 @@
                         <td><?php echo $each['MaPQ'] ?></td>
                         <td><?php echo $each['Quyen'] ?></td>
                         <td>
-                            <a href="?action=edit&ma=<?php echo $each['MaPQ'] ?>">
-                                <button class="bnt-edit-authorize">Sửa</button>
-                            </a>
+                            <?php if ($each['Quyen'] == 'Admin' || $each['Quyen'] == 'Khách hàng')
+                                echo "Nothing";
+                            else {
+                                echo '<a href="?action=edit&controller=authorization&ma=' . $each['MaPQ'] . '">';
+                                echo '<button class="bnt-edit-authorize">Sửa</button>';
+                                echo '</a>';
+                            }
+                            ?>
                         </td>
                         <td>
-                            <button class="btn-delete-authorize" value="<?php echo $each['MaPQ'] ?>">Xóa</button>
+                            <?php if ($each['Quyen'] == 'Admin' || $each['Quyen'] == 'Khách hàng')
+                                echo "Nothing";
+                            else {
+                                echo '<button class="btn-delete-authorize" value="' . $each['MaPQ'] . '">Xóa</button>';
+                            }
+                            ?>
                         </td>
                     </tr>
                 <?php } ?>
@@ -44,3 +54,4 @@
         </table>
     </div>
 </div>
+<script src="public/js/authorize.js"></script>

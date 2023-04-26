@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="../../../public/css/index.css">
-<a href="?action=revenue&controller=statistic"><button>Doanh thu</button></a>
-<a href="?action=sellproduct&controller=statistic"><button>Sản phẩm</button></a>
-<a href="?action=bestselling&controller=statistic"><button>Sản phẩm bán chạy</button></a>
-<form action="?action=filter&controller=statistic" method="post">
-    Từ ngày <input type="date" name="datestart" value="<?php if (isset($_POST['datestart'])) echo $_POST['datestart'] ?>">
-    đến ngày <input type="date" name="dateend" value="<?php if (isset($_POST['dateend'])) echo $_POST['dateend'] ?>">
-    <button>Kiểm tra</button>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-    </figure>
-</form>
+<a href="?action=revenue&controller=statistic"><button class="btn-statistic-total">Doanh thu</button></a>
+<a href="?action=sellproduct&controller=statistic"><button class="btn-statistic-product">Sản phẩm</button></a>
+<a href="?action=bestselling&controller=statistic"><button class="btn-statistic-bestsell">Sản phẩm bán chạy</button></a>
+<div class="form-chart" id="form-chart-total">
+    <form action="?action=filter&controller=statistic" method="post">
+        Từ ngày <input class="form-chart-input" id="chart-total-datestart" type="date" name="datestart" value="<?php if (isset($_POST['datestart'])) echo $_POST['datestart'] ?>">
+        đến ngày <input class="form-chart-input" id="chart-total-dateend" type="date" name="dateend" value="<?php if (isset($_POST['dateend'])) echo $_POST['dateend'] ?>">
+        <button class="form-chart-check" type="submit">Kiểm tra</button>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+        </figure>
+    </form>
+</div>
+<!-- <script src="public/js/statistics.js"></script> -->
 <?php
 $arr = [];
 if (isset($_GET['action']) && $_GET['action'] == 'filter') {
