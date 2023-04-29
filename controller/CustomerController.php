@@ -9,13 +9,13 @@ if (isset($_POST['action']))
 
 switch ($action) {
     case '':
-        require 'model/CustomerModel.php';
-        require 'view/admin/customer/index.php';
+        require '../../model/CustomerModel.php';
+        require 'customer/index.php';
         break;
     case 'edit':
         $ma = $_GET['ma'];
-        require 'model/CustomerModel.php';
-        require 'view/admin/customer/edit.php';
+        require '../../model/CustomerModel.php';
+        require 'customer/edit.php';
         break;
     case 'update':
         $ma = $_POST['ma'];

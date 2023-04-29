@@ -7,13 +7,13 @@ if (isset($_GET['action'])) {
 
 switch ($action) {
     case '':
-        require 'model/BillModel.php';
-        require 'view/admin/bill/index.php';
+        require '../../model/BillModel.php';
+        require 'bill/index.php';
         break;
     case 'billdetail':
         $ma = $_GET['ma'];
-        require 'model/BillModel.php';
-        require 'view/admin/bill/billdetail.php';
+        require '../../model/BillModel.php';
+        require 'bill/billdetail.php';
         break;
     case 'billstatus':
         $ma = $_GET['ma'];

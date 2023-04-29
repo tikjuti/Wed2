@@ -7,8 +7,8 @@ if (isset($_GET['action'])) {
 
 switch ($action) {
     case '':
-        require 'model/ProductModel.php';
-        require 'view/admin/products/index.php';
+        require '../../model/ProductModel.php';
+        require 'products/index.php';
         break;
     case 'create':
         require 'products/create.php';

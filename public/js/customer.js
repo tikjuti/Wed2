@@ -16,7 +16,7 @@ $(document).ready(function () {
                       if (willDelete) {
                             $.ajax({
                                   type: "GET",
-                                  url: "controller/CustomerController.php",
+                                  url: "../../controller/CustomerController.php",
                                   data: {
                                           'ma': deleteid,
                                           'action': status
@@ -65,7 +65,7 @@ $(document).ready(function () {
                         if (willDelete) {
                               $.ajax({
                                     type: "POST",
-                                    url: "controller/CustomerController.php",
+                                    url: "../../controller/CustomerController.php",
                                     data:  {
                                           'ma':ma,
                                           'matk':matk,
@@ -79,7 +79,7 @@ $(document).ready(function () {
                                           'action': status
                                     },
                                       success: function () {
-                                                location.href="http://localhost/WEDNANGCAO/?controller=customer";
+                                                location.href="http://localhost/WEDNANGCAO/view/admin/index.php?controller=customer";
                                     }
                               });
                         } else {
