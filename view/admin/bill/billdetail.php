@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="public/css/index.css">
 <div class="au_main">
     <div class="author_group">
         <table>
@@ -33,7 +32,7 @@
                             <td><?php echo $each['TinhTrang'] ?></td>
                             <td>
                                 <?php
-                                if ($each['TinhTrang'] == 0)
+                                if ($each['TinhTrang'] == 0 && $statusProcess == 1)
                                     echo '<button class="btn-process-bill" value="' . $each['MaHD'] . '">Xử lý</button>';
                                 else
                                     echo 'Đã xử lý';
@@ -51,4 +50,4 @@
         <div class="info-receive_item">Số điện thoại : <?php echo $each['SDT'] ?></div>
     </div>
 </div>
-<script src="public/js/bill.js"></script>
+<script src="../../public/js/bill.js"></script>

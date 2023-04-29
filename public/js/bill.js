@@ -15,7 +15,7 @@ $(document).ready(function () {
                       if (willDelete) {
                             $.ajax({
                                   type: "GET",
-                                  url: "controller/BillController.php",
+                                  url: "../../controller/BillController.php",
                                   data: {
                                           'ma': process,
                                           'action': action,

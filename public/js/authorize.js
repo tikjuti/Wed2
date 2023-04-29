@@ -16,7 +16,7 @@ $(document).ready(function () {
                       if (willDelete) {
                             $.ajax({
                                   type: "GET",
-                                  url: "controller/AuthorizationController.php",
+                                  url: "../../controller/AuthorizationController.php",
                                   data: {
                                           'ma': deleteid,
                                           'action': status
@@ -60,7 +60,7 @@ $(document).ready(function () {
                         if (willDelete) {
                               $.ajax({
                                     type: "POST",
-                                    url: "controller/CustomerController.php",
+                                    url: "../../controller/CustomerController.php",
                                     data:  {
                                           'ma':ma,
                                           'matk':matk,

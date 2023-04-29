@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="public/css/index.css">
 <div class="au_main">
     <div class="author_group">
         <table>
@@ -24,9 +23,11 @@
                         <td><?php echo $each['TenNguoiNhan'] ?></td>
                         <td><?php echo $each['TinhTrang'] ?></td>
                         <td>
-                            <a href="?action=billdetail&controller=bill&ma=<?php echo $each['MaHD'] ?>">
-                                <button>Chi tiết</button>
-                            </a>
+                            <?php if ($statusDetail) { ?>
+                                <a href="?action=billdetail&controller=bill&ma=<?php echo $each['MaHD'] ?>">
+                                    <button>Chi tiết</button>
+                                </a>
+                            <?php } else echo  'Nothing' ?>
                         </td>
                         </td>
                     </tr>

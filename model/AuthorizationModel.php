@@ -1,9 +1,9 @@
 <?php
 
 if ($action == "delete" || $action == "update")
-    require 'Connect.php';
+    require '../model/Connect.php';
 else
-    require 'model/Connect.php';
+    require '../../model/Connect.php';
 
 switch ($action) {
     case '':

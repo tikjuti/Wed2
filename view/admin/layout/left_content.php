@@ -1,43 +1,41 @@
 <div class="col p-2" id="content-left">
     <nav class="category">
         <ul class="category_list" id="category_list">
-            <a href="?controller=product" class="category_iteam_link">
-                <li class="category_iteam">
-                    <i class="category_iteam_link_icon1  fa-brands fa-shopify"></i>
-                    Sản phẩm
-                </li>
-            </a>
-            <a href="?controller=staff" class="category_iteam_link">
-                <li class="category_iteam">
-                    <i class="category_iteam_link_icon1  fa-solid fa-user"></i>
-                    Nhân viên
-                </li>
-            </a>
-            <a href="?controller=customer" class="category_iteam_link">
-                <li class="category_iteam">
-                    <i class="category_iteam_link_icon2  fa-solid fa-users"></i>
-                    Khách hàng
-                </li>
-            </a>
-            <a href="?controller=bill" class="category_iteam_link">
-                <li class="category_iteam">
-                    <i class="category_iteam_link_icon3  fa-solid fa-file-invoice"></i>
-                    Hóa đơn
-                </li>
-            </a>
-            <a href="?controller=statistic" class="category_iteam_link">
-                <li class="category_iteam">
-                    <i class="category_iteam_link_icon4  fa-solid fa-chart-line"></i>
-                    Thống kê
-                </li>
-            </a>
-
-            <a href="?controller=authorization" class="category_iteam_link">
-                <li class="category_iteam">
-                    <i class="category_iteam_link_icon4  fa-solid fa-screwdriver-wrench"></i>
-                    Phân quyền
-                </li>
-            </a>
+            <?php
+            if (isset($_SESSION['arrTenCN'])) {
+                $arrTenCN = $_SESSION['arrTenCN'];
+                foreach ($arrTenCN as $each) {
+                    $tmp = preg_split("/\./", $each);
+                    $tenctl = '';
+                    switch ($tmp[0]) {
+                        case 'Sản phẩm':
+                            $tenctl = 'product';
+                            break;
+                        case 'Hóa đơn':
+                            $tenctl = 'bill';
+                            break;
+                        case 'Thống kê':
+                            $tenctl = 'statistic';
+                            break;
+                        case 'Nhân viên':
+                            $tenctl = 'staff';
+                            break;
+                        case 'Khách hàng':
+                            $tenctl = 'customer';
+                            break;
+                        case 'Phân quyền':
+                            $tenctl = 'authorization';
+                            break;
+                    }
+            ?>
+                    <a href="?controller=<?php echo $tenctl ?>" class=" category_iteam_link">
+                        <li class="category_iteam">
+                            <i class="category_iteam_link_icon1  <?php echo $tmp[1] ?>"></i>
+                            <span class="category_iteam_info"><?php echo $tmp[0] ?></span>
+                        </li>
+                    </a>
+            <?php }
+            } ?>
         </ul>
     </nav>
 </div>

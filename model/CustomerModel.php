@@ -1,9 +1,31 @@
 <?php
+// session_start();
 
 if ($action == "delete" || $action == "update")
-    require 'Connect.php';
+    require '../model/Connect.php';
 else
-    require 'model/Connect.php';
+    require '../../model/Connect.php';
+
+if (isset($_SESSION['arrPQ'])) {
+    $arrPQ = $_SESSION['arrPQ'];
+    foreach ($arrPQ as $key => $value) {
+        $tmp = preg_split("/\./", $key);
+        if ($tmp[0] == 'Khách hàng') {
+            foreach ($value['HanhDong'] as $key2 => $value2) {
+                $tmp2 = preg_split("/\./", $value2);
+                if ($tmp2[0] == 'edit' && $tmp2[1] == 1)
+                    $statusEdit = 1;
+                else
+                    $statusEdit = 0;
+                if ($tmp2[0] == 'delete' && $tmp2[1] == 1)
+                    $statusDelete = 1;
+                else
+                    $statusDelete = 0;
+            }
+            break;
+        }
+    }
+}
 
 switch ($action) {
     case '':

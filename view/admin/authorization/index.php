@@ -54,4 +54,4 @@
         </table>
     </div>
 </div>
-<script src="public/js/authorize.js"></script>
+<script src="../../public/js/authorize.js"></script>

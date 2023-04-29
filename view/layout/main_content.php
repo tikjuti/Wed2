@@ -25,7 +25,7 @@ if (isset($_GET['control'])) {
                 unset($_SESSION['MaPQ']);
                 unset($_SESSION['iduser']);
                 unset($_SESSION['username']);
-                header('location: http://localhost/project/user/views/index.php');
+                header('location: http://localhost/WEDNANGCAO/index.php');
                 break;
             }
     }

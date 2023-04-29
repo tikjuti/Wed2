@@ -1,6 +1,6 @@
 <?php
 
-require 'model/Connect.php';
+require '../../model/Connect.php';
 
 switch ($action) {
     case '':

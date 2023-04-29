@@ -1,9 +1,33 @@
 <?php
 
 if ($action == "billstatus")
-    require 'Connect.php';
+    require '../model/Connect.php';
 else
-    require 'model/Connect.php';
+    require '../../model/Connect.php';
+
+if (isset($_SESSION['arrPQ'])) {
+    $arrPQ = $_SESSION['arrPQ'];
+    echo  json_encode($arrPQ);
+    foreach ($arrPQ as $key => $value) {
+        $tmp = preg_split("/\./", $key);
+        if ($tmp[0] == 'Hóa đơn') {
+            foreach ($value['HanhDong'] as $key2 => $value2) {
+                $tmp2 = preg_split("/\./", $value2);
+                if ($tmp2[0] == 'detail' && $tmp2[1] == 1)
+                    $statusDetail = 1;
+                else
+                    $statusDetail = 0;
+                if ($tmp2[0] == 'process' && $tmp2[1] == 1)
+                    $statusProcess = 1;
+                else
+                    $statusProcess = 0;
+            }
+            break;
+        }
+    }
+}
+echo $statusDetail;
+echo $statusProcess;
 
 switch ($action) {
     case '':

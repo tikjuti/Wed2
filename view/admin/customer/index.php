@@ -26,12 +26,16 @@
                         <td><?php echo $each['EmailKH'] ?></td>
                         <td><?php echo $each['DiaChi'] ?></td>
                         <td>
-                            <a href="?action=edit&controller=customer&ma=<?php echo $each['MaKH'] ?>">
-                                <button class="bnt-edit-authorize">Sửa</button>
-                            </a>
+                            <?php if ($statusEdit) {  ?>
+                                <a href="?action=edit&controller=customer&ma=<?php echo $each['MaKH'] ?>">
+                                    <button class="bnt-edit-authorize">Sửa</button>
+                                </a>
+                            <?php } else echo 'Nothing' ?>
                         </td>
                         <td>
-                            <button class="delete-customer-btn" value="<?php echo $each['MaKH'] ?>">Xóa</button>
+                            <?php if ($statusDelete) { ?>
+                                <button class="delete-customer-btn" value="<?php echo $each['MaKH'] ?>">Xóa</button>
+                            <?php } else echo 'Nothing' ?>
                         </td>
                     </tr>
                 <?php } ?>
@@ -40,4 +44,4 @@
     </div>
 </div>
 
-<script src="public/js/customer.js"></script>
+<script src="../../public/js/customer.js"></script>

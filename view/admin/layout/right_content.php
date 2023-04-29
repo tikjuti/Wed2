@@ -7,29 +7,29 @@ if (isset($_GET['controller'])) {
 
 switch ($controller) {
     case '':
-        require 'controller/ProductController.php';
+        require '../../controller/ProductController.php';
         break;
     case 'product':
-        require 'controller/ProductController.php';
+        require '../../controller/ProductController.php';
         break;
     case 'staff':
         echo "Đây là nơi quản lý nhân viên";
         // require '../../controller/ProductController.php';
         break;
     case 'customer':
-        require 'controller/CustomerController.php';
+        require '../../controller/CustomerController.php';
         break;
     case 'bill':
-        require 'controller/BillController.php';
+        require '../../controller/BillController.php';
         break;
     case 'billdetail':
-        require 'controller/BillController.php';
+        require '../../controller/BillController.php';
         break;
     case 'statistic':
-        require 'controller/ChartController.php';
+        require '../../controller/ChartController.php';
         break;
     case 'authorization':
-        require 'controller/AuthorizationController.php';
+        require '../../controller/AuthorizationController.php';
         break;
     default:
         echo "Không tìm thấy controller phù hợp!";
