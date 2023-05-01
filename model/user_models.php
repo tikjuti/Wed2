@@ -1,6 +1,6 @@
 <?php
-require './Connect.php';
 session_start();
+require './Connect.php';
 // include 'user.php';
 if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])) {
     $user = $_POST['username'];

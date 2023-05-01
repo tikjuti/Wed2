@@ -53,7 +53,7 @@
             },
             success: function(response) {
                 if (response == 'success')
-                    location.href = "view/admin/index.php";
+                    location.href = " http://localhost/WEDNANGCAO/view/admin/index.php";
                 else
                     location.href = "http://localhost/WEDNANGCAO/index.php";
             }
