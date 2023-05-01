@@ -26,14 +26,14 @@
                         <td><?php echo $each['EmailKH'] ?></td>
                         <td><?php echo $each['DiaChi'] ?></td>
                         <td>
-                            <?php if ($statusEdit) {  ?>
+                            <?php if (isset($statusEdit)) {  ?>
                                 <a href="?action=edit&controller=customer&ma=<?php echo $each['MaKH'] ?>">
                                     <button class="bnt-edit-authorize">Sửa</button>
                                 </a>
                             <?php } else echo 'Nothing' ?>
                         </td>
                         <td>
-                            <?php if ($statusDelete) { ?>
+                            <?php if (isset($statusDelete)) { ?>
                                 <button class="delete-customer-btn" value="<?php echo $each['MaKH'] ?>">Xóa</button>
                             <?php } else echo 'Nothing' ?>
                         </td>

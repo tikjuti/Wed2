@@ -1,9 +1,30 @@
 <?php
 
-if ($action == "delete" || $action == "update")
+if ($action == "delete" || $action == "update" || $action == "store")
     require '../model/Connect.php';
 else
     require '../../model/Connect.php';
+
+if (isset($_SESSION['arrPQ'])) {
+    $arrPQ = $_SESSION['arrPQ'];
+    foreach ($arrPQ as $key => $value) {
+        $tmp = preg_split("/\./", $key);
+        if ($tmp[0] == 'Phân quyền') {
+            foreach ($value['HanhDong'] as $key2 => $value2) {
+                $tmp2 = preg_split("/\./", $value2);
+                if ($tmp2[0] == 'edit' && $tmp2[1]) {
+                    $statusEdit = 1;
+                } else
+                    if ($tmp2[0]  == 'delete' && $tmp2[1]) {
+                    $statusDelete = 1;
+                } else
+                    if ($tmp2[0]  == 'create' && $tmp2[1]) {
+                    $statusCreate = 1;
+                }
+            }
+        }
+    }
+}
 
 switch ($action) {
     case '':
@@ -11,111 +32,62 @@ switch ($action) {
         $result = (new Connnect())->select($sql);
         break;
     case 'store':
-        $sql = "insert into sanpham(TenSP, MaLoaiSP, GiaSP, SoLuongSP, ManHinh, Camera, DungLuong, Chip, AnhSP, MaNCC)
-        values ('$ten', '$maloai', '$gia', '$soluong', '$manhinh', '$camera', '$dungluong', '$chip', '$anh', '$mancc')";
+        $sql = "insert into phanquyen(Quyen, IsDeleted) values ('$Quyen', '0')";
         (new Connnect())->excute($sql);
+        $sql1 = "select * from phanquyen where IsDeleted=0 and Quyen = '$Quyen'";
+        $result = (new Connnect())->select($sql1);
+        $each = mysqli_fetch_array($result);
+        $maPQ = $each['MaPQ'];
+        for ($i = 0; $i < count($arrMaCN); $i++) {
+            $sql2 = "insert into ctquyencn(MaQuyen, MaCN, HanhDong, Url, Chon)
+                values ($maPQ, '$arrMaCN[$i]', '$arrHD[$i]', 'abc', '$arrData[$i]')";
+            (new Connnect())->excute($sql2);
+        }
         break;
     case 'edit':
-        $sql = "select * from danhmuccn 
-        join ctquyencn on danhmuccn.MaCN = ctquyencn.MaCN
-        join phanquyen on ctquyencn.MaQuyen = phanquyen.MaPQ
-        where MaQuyen ='$ma' and Chon=1";
-        $sql1 = "select * from phanquyen where MaPQ ='$ma'";
+        $sql = "select * from phanquyen where MaPQ ='$ma'";
         $result = (new Connnect())->select($sql);
-        $result1 = (new Connnect())->select($sql1);
-        $each = mysqli_fetch_array($result1);
-        $arr1 = [0, 0, 0];
-        $arr2 = [0, 0, 0];
-        $arr3 = [0, 0, 0];
-        $arr4 = [0, 0, 0];
-        $arr5 = [0, 0, 0];
-        $arr6 = [0, 0, 0];
+        $each = mysqli_fetch_array($result);
         $title = $each['Quyen'];
         $ma = $each['MaPQ'];
-
-        foreach ($result as $each) {
-            switch ($each['MaCN']) {
-                case 1: {
-                        switch ($each['HanhDong']) {
-                            case 'create':
-                                $arr1[0] = 1;
-                                break;
-                            case 'edit':
-                                $arr1[1] = 1;
-                                break;
-                            case 'delete':
-                                $arr1[2] = 1;
-                                break;
-                        }
-                    }
-                    break;
-                case 2:
-                    switch ($each['HanhDong']) {
-                        case 'create':
-                            $arr2[0] = 1;
-                            break;
-                        case 'edit':
-                            $arr2[1] = 1;
-                            break;
-                        case 'delete':
-                            $arr2[2] = 1;
-                            break;
-                    }
-                    break;
-                case 3:
-                    switch ($each['HanhDong']) {
-                        case 'create':
-                            $arr3[0] = 1;
-                            break;
-                        case 'edit':
-                            $arr3[1] = 1;
-                            break;
-                        case 'delete':
-                            $arr3[2] = 1;
-                            break;
-                    }
-                    break;
-                case 4:
-                    switch ($each['HanhDong']) {
-                        case 'detail':
-                            $arr4[0] = 1;
-                            break;
-                        case 'process':
-                            $arr4[1] = 1;
-                            break;
-                    }
-                    break;
-                case 5:
-                    switch ($each['HanhDong']) {
-                        case 'statistics':
-                            $arr5[0] = 1;
-                            break;
-                    }
-                    break;
-                case 6:
-                    switch ($each['HanhDong']) {
-                        case 'create':
-                            $arr6[0] = 1;
-                            break;
-                        case 'edit':
-                            $arr6[1] = 1;
-                            break;
-                        case 'delete':
-                            $arr6[2] = 1;
-                            break;
-                    }
-                    break;
+        $arrPQ = [];
+        $sql1 = "SELECT * FROM danhmuccn";
+        $sql2 = "SELECT * FROM ctquyencn WHERE MaQuyen = '$ma'";
+        $result2 = (new Connnect())->select($sql2);
+        $result1 = (new Connnect())->select($sql1);
+        foreach ($result1 as $each) {
+            $ma_cn = $each['MaCN'];
+            $ten_cn = $each['TenCN'] . "." . $each['Icon'];
+            foreach ($result2 as $each2) {
+                if ($each2['MaCN'] == $ma_cn) {
+                    if (empty($arrPQ[$ten_cn]))
+                        $arrPQ[$ten_cn] = [
+                            'MaCN' => $ma_cn,
+                            'HanhDong' => []
+                        ];
+                }
+            }
+            foreach ($result2 as $each2) {
+                if ($each2['MaCN'] == $ma_cn) {
+                    $hd = $each2['HanhDong'] . "." . $each2['Chon'];
+                    array_push($arrPQ[$ten_cn]['HanhDong'], $hd);
+                }
             }
         }
         break;
     case 'update':
-        $sql = "update sanpham
+        $sql = "update phanquyen
             set 
-                TenSP = '$ten',
-                AnhSP = '$anh',
-                GiaSP = '$gia'
-            where MaSP ='$ma'";
+            Quyen = '$Quyen'
+            where MaPQ ='$MaQuyen'";
         (new Connnect())->excute($sql);
+        for ($i = 0; $i < count($arrMaCN); $i++) {
+            $sql = "update ctquyencn
+                set 
+                   Chon='$arrData[$i]'
+                where MaQuyen ='$MaQuyen' and MaCN = '$arrMaCN[$i]' and HanhDong = '$arrHD[$i]'";
+            (new Connnect())->excute($sql);
+        }
         break;
     case 'delete':
         $sql = "update phanquyen set IsDeleted = 1

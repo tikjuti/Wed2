@@ -23,11 +23,12 @@
                         <td><?php echo $each['TenNguoiNhan'] ?></td>
                         <td><?php echo $each['TinhTrang'] ?></td>
                         <td>
-                            <?php if ($statusDetail) { ?>
-                                <a href="?action=billdetail&controller=bill&ma=<?php echo $each['MaHD'] ?>">
-                                    <button>Chi tiết</button>
-                                </a>
-                            <?php } else echo  'Nothing' ?>
+                            <?php if (isset($statusDetail)) {
+                                echo '<a href="?action=billdetail&controller=bill&ma=' . $each['MaHD'] . '">';
+                                echo '<button>Chi tiết</button>';
+                                echo '</a>';
+                            } else echo  'Nothing';
+                            ?>
                         </td>
                         </td>
                     </tr>

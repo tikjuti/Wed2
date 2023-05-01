@@ -14,10 +14,11 @@
         </div>
     </div>
     <div class="col p-2">
-        <!-- <span class="header-account-name">
-            Xin chào ADMIN
-        </span> -->
-        <button onclick="showFormSignUp()">Đăng kí</button>
-        <button onclick="showFormLogin()">Đăng nhập</button>
+        <span class="header-account-name">
+            Xin chào <?php echo $_SESSION['namenv'] ?>
+        </span>
+        <a href="./layout/logout.php">
+            <button class="header-account-button">Đăng xuất</button>
+        </a>
     </div>
 </div>

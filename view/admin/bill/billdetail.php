@@ -31,11 +31,12 @@
                             <td><?php echo number_format($thanhtien, 0, ',', '.') . 'VND' ?></td>
                             <td><?php echo $each['TinhTrang'] ?></td>
                             <td>
-                                <?php
-                                if ($each['TinhTrang'] == 0 && $statusProcess == 1)
-                                    echo '<button class="btn-process-bill" value="' . $each['MaHD'] . '">Xử lý</button>';
-                                else
-                                    echo 'Đã xử lý';
+                                <?php if (isset($statusProcess)) {
+                                    if ($each['TinhTrang'] == 0)
+                                        echo '<button class="btn-process-bill" value="' . $each['MaHD'] . '">Xử lý</button>';
+                                    else
+                                        echo 'Đã xử lý';
+                                } else    echo 'Nothing';
                                 ?>
                             </td>
                         </tr>

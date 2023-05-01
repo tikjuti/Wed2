@@ -2,7 +2,6 @@
 
 require '../../model/Connect.php';
 
-
 switch ($action) {
     case '':
         $sql = "select NgayLap as 'ngay', sum(TongTien) as 'doanhthu'

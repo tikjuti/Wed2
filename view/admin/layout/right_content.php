@@ -6,9 +6,9 @@ if (isset($_GET['controller'])) {
 }
 
 switch ($controller) {
-    case '':
-        require '../../controller/ProductController.php';
-        break;
+        // case '':
+        //     // require '../../controller/ProductController.php';
+        //     break;
     case 'product':
         require '../../controller/ProductController.php';
         break;
@@ -32,5 +32,5 @@ switch ($controller) {
         require '../../controller/AuthorizationController.php';
         break;
     default:
-        echo "Không tìm thấy controller phù hợp!";
+        echo '<div class="authorize-modalbox">Không tìm thấy controller phù hợp!</div>';
 }
