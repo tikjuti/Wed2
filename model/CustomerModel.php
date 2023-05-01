@@ -13,16 +13,13 @@ if (isset($_SESSION['arrPQ'])) {
         if ($tmp[0] == 'Khách hàng') {
             foreach ($value['HanhDong'] as $key2 => $value2) {
                 $tmp2 = preg_split("/\./", $value2);
-                if ($tmp2[0] == 'edit' && $tmp2[1] == 1)
+                if ($tmp2[0] == 'edit' && $tmp2[1]) {
                     $statusEdit = 1;
-                else
-                    $statusEdit = 0;
-                if ($tmp2[0] == 'delete' && $tmp2[1] == 1)
+                } else
+                if ($tmp2[0]  == 'delete' && $tmp2[1]) {
                     $statusDelete = 1;
-                else
-                    $statusDelete = 0;
+                }
             }
-            break;
         }
     }
 }

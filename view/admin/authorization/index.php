@@ -1,19 +1,11 @@
 <link rel="stylesheet" href="public/css/reset.css">
 <div class="au_main">
     <div class="title">
-        <span>Authorization</span>
-        <?php
-        // include '../../model/connect.php';
-        // include '../../model/function_employee.php';
-        // $accountFeatures = json_decode($features_arr[4],true);
-        // if($accountFeatures["ADD AUTHORITY"]==1) {
-        //   echo '
-        //     <a href="./authorize.php?page=authorization">
-        //         <button>Add group</button>
-        //     </a>
-        //   ';
-        // }
-        ?>
+        <?php if (isset($statusCreate)) {  ?>
+            <a href="?action=create&controller=authorization">
+                <button class="bnt-create-authorize">Thêm</button>
+            </a>
+        <?php } else echo "Nothing"  ?>
     </div>
     <div class="author_group">
         <table>
@@ -34,9 +26,11 @@
                             <?php if ($each['Quyen'] == 'Admin' || $each['Quyen'] == 'Khách hàng')
                                 echo "Nothing";
                             else {
-                                echo '<a href="?action=edit&controller=authorization&ma=' . $each['MaPQ'] . '">';
-                                echo '<button class="bnt-edit-authorize">Sửa</button>';
-                                echo '</a>';
+                                if (isset($statusEdit)) {
+                                    echo '<a href="?action=edit&controller=authorization&ma=' . $each['MaPQ'] . '">';
+                                    echo '<button class="bnt-edit-authorize">Sửa</button>';
+                                    echo '</a>';
+                                } else echo "Nothing";
                             }
                             ?>
                         </td>
@@ -44,7 +38,9 @@
                             <?php if ($each['Quyen'] == 'Admin' || $each['Quyen'] == 'Khách hàng')
                                 echo "Nothing";
                             else {
-                                echo '<button class="btn-delete-authorize" value="' . $each['MaPQ'] . '">Xóa</button>';
+                                if (isset($statusDelete)) {
+                                    echo '<button class="btn-delete-authorize" value="' . $each['MaPQ'] . '">Xóa</button>';
+                                } else echo "Nothing";
                             }
                             ?>
                         </td>

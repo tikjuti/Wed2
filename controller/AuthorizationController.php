@@ -17,13 +17,38 @@ switch ($action) {
         require '../../model/AuthorizationModel.php';
         require 'authorization/edit.php';
         break;
-        // case 'update':
-        //     $ma = $_POST['ma'];
-        //     $ten = $_POST['ten'];
-        //     $anh = $_POST['anh'];
-        //     $gia = $_POST['gia'];
-        //     require '../model/AuthorizationModel.php';
-        //     break;
+    case 'create':
+        require 'authorization/create.php';
+        break;
+    case 'store':
+        $Quyen = $_POST['Quyen'];
+        $arrMaCN = $_POST['arrMaCN'];
+        $arrHD = $_POST['arrHD'];
+        $arrtmp = $_POST['arrData'];
+        $arrData = [];
+        foreach ($arrtmp as $each) {
+            if ($each == 'true')
+                array_push($arrData, 1);
+            else
+                array_push($arrData, 0);
+        }
+        require '../model/AuthorizationModel.php';
+        break;
+    case 'update':
+        $MaQuyen = $_POST['MaQuyen'];
+        $Quyen = $_POST['Quyen'];
+        $arrMaCN = $_POST['arrMaCN'];
+        $arrHD = $_POST['arrHD'];
+        $arrtmp = $_POST['arrData'];
+        $arrData = [];
+        foreach ($arrtmp as $each) {
+            if ($each == 'true')
+                array_push($arrData, 1);
+            else
+                array_push($arrData, 0);
+        }
+        require '../model/AuthorizationModel.php';
+        break;
     case 'delete':
         $ma = $_GET['ma'];
         require '../model/AuthorizationModel.php';

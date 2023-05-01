@@ -35,18 +35,19 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-      $('.btn-edit-customer').click(function (e) {
+      $('.btn-edit-authorize').click(function (e) {
             e.preventDefault();
-            // var formData = $('#form-edit-customer').serialize();
-            var ma = $('input[name="ma"]').val();
-            var matk = $('input[name="matk"]').val();
-            var ten = $('input[name="ten"]').val();
-            var username = $('input[name="username"]').val();
-            var password = $('input[name="password"]').val();
-            var sdt = $('input[name="sdt"]').val();
-            var ngaysinh = $('input[name="ngaysinh"]').val();
-            var email = $('input[name="email"]').val();
-            var diachi = $('input[name="diachi"]').val();
+            var MaQuyen = $('input[name="ma"]').val();
+            var Quyen = $('input[name="name"]').val();
+            var arrMaCN = [];
+            var arrHD = [];
+            var arrData = [];
+            var data = document.querySelectorAll('.authorize-content-check');
+            for (let i = 0; i < data.length; i++) {
+                  arrMaCN.push(data[i].dataset.macn);
+                  arrHD.push(data[i].dataset.hd);
+                  arrData.push($(data[i]).is(':checked'));
+            }
             var status = "update";
             
             swal({
@@ -60,21 +61,62 @@ $(document).ready(function () {
                         if (willDelete) {
                               $.ajax({
                                     type: "POST",
-                                    url: "../../controller/CustomerController.php",
+                                    url: "../../controller/AuthorizationController.php",
                                     data:  {
-                                          'ma':ma,
-                                          'matk':matk,
-                                          'ten':ten,
-                                          'username':username,
-                                          'password':password,
-                                          'sdt':sdt,
-                                          'ngaysinh':ngaysinh,
-                                          'email':email,
-                                          'diachi':diachi,
+                                          'MaQuyen':MaQuyen,
+                                          'Quyen':Quyen,
+                                          'arrMaCN':arrMaCN,
+                                          'arrData':arrData,
+                                          'arrHD':arrHD,
                                           'action': status
                                     },
                                       success: function () {
-                                                location.href="http://localhost/WEDNANGCAO/?controller=customer";
+                                                location.reload();
+                                    }
+                              });
+                        } else {
+                              swal("Your imaginary file is safe!");
+                        }
+                  });
+  
+      });
+  });
+$(document).ready(function () {
+      $('.btn-create-authorize').click(function (e) {
+            e.preventDefault();
+            var Quyen = $('input[name="name"]').val();
+            var arrMaCN = [];
+            var arrHD = [];
+            var arrData = [];
+            var data = document.querySelectorAll('.authorize-content-check');
+            for (let i = 0; i < data.length; i++) {
+                  arrMaCN.push(data[i].dataset.macn);
+                  arrHD.push(data[i].dataset.hd);
+                  arrData.push($(data[i]).is(':checked'));
+            }
+            var status = "store";
+            
+            swal({
+                  title: "Bạn chắc chắn chưa?",
+                  text: "Once updated, you will not be able to recover!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+            })
+                  .then((willDelete) => {
+                        if (willDelete) {
+                              $.ajax({
+                                    type: "POST",
+                                    url: "../../controller/AuthorizationController.php",
+                                    data:  {
+                                          'Quyen':Quyen,
+                                          'arrMaCN':arrMaCN,
+                                          'arrData':arrData,
+                                          'arrHD':arrHD,
+                                          'action': status
+                                    },
+                                      success: function () {
+                                                location.href = "http://localhost/WEDNANGCAO/view/admin/index.php?controller=authorization";
                                     }
                               });
                         } else {

@@ -11,6 +11,17 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
     $role = $array['MaPQ'];
     $_SESSION['curentuser'] = $array;
 
+    if ($role == 2) {
+        $sql3 = "SELECT * FROM taikhoan join khachhang on taikhoan.MaTK = khachhang.MaTK
+        WHERE Username='" . $user . "' AND Password='" . $pass . "'";
+        $query3 = (new Connnect())->select($sql3);
+        $array1 = mysqli_fetch_array($query3);
+    } else {
+        $sql3 = "SELECT * FROM taikhoan join nhanvien on taikhoan.MaTK = nhanvien.MaTK
+        WHERE Username='" . $user . "' AND Password='" . $pass . "'";
+        $query3 = (new Connnect())->select($sql3);
+        $array1 = mysqli_fetch_array($query3);
+    }
     $arrPQ = [];
     $sql1 = "SELECT * FROM danhmuccn";
     $sql2 = "SELECT * FROM ctquyencn WHERE MaQuyen = '$role'";
@@ -35,7 +46,17 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
             }
         }
     }
-    $arrTenCN = array_keys($arrPQ);
+    $arrTenCN = [];
+    foreach ($arrPQ as $key => $value) {
+        $flag = 0;
+        foreach ($value['HanhDong'] as $key2 => $value2) {
+            $tmp2 = preg_split("/\./", $value2);
+            if ($tmp2[1]) {
+                $flag = 1;
+            }
+        }
+        if ($flag) array_push($arrTenCN, $key);
+    }
     $_SESSION['arrTenCN'] = $arrTenCN;
     $_SESSION['arrPQ'] = $arrPQ;
     if ($query->num_rows == 0) {
@@ -47,23 +68,16 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
         );
         exit;
     } else {
-        if ($role == 1) {
-            $_SESSION['MaPQ'] = $role;
-            echo 'success';
-        } else
         if ($role == 2) {
             $_SESSION['MaPQ'] = $role;
-            echo 'success';
-        } else
-        if ($role == 3) {
-            $_SESSION['MaPQ'] = $role;
-            echo 'success';
+            $_SESSION['iduser'] = $array['MaTK'];
+            $_SESSION['namekh'] = $array1['TenKH'];
+            echo 'customer';
         } else {
             $_SESSION['MaPQ'] = $role;
             $_SESSION['iduser'] = $array['MaTK'];
-            $_SESSION['username'] = $array['Username'];
-            // header('location: http://localhost/project/user/views/index.php');
-
+            $_SESSION['namenv'] = $array1['TenNV'];
+            echo 'success';
         }
     }
 }
