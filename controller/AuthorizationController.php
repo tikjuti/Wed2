@@ -47,9 +47,6 @@ switch ($action) {
             else
                 array_push($arrData, 0);
         }
-        echo json_encode($arrData);
-        echo json_encode($arrMaCN);
-        echo json_encode($arrHD);
         require '../model/AuthorizationModel.php';
         break;
     case 'delete':
