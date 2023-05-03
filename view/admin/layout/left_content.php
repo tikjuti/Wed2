@@ -29,6 +29,9 @@
                         case 'Tài khoản':
                             $tenctl = 'account';
                             break;
+                        case 'Nhập hàng':
+                            $tenctl = 'import';
+                            break;
                     }
             ?>
                     <a href="?controller=<?php echo $tenctl ?>" class=" category_iteam_link">

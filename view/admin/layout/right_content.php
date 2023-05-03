@@ -34,6 +34,9 @@ switch ($controller) {
     case 'account':
         require '../../controller/AccountController.php';
         break;
+    case 'import':
+        require '../../controller/ImportController.php';
+        break;
     default:
         echo '<div class="authorize-modalbox">Không tìm thấy controller phù hợp!</div>';
 }

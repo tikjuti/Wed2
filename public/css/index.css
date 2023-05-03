@@ -922,3 +922,8 @@
   margin-bottom: 5px;
   font-family: 'Righteous', cursive;
 }
+.invoices-import {
+  position: absolute;
+  right: 62px;
+  width: 120px;
+}
