@@ -36,8 +36,6 @@ ob_start();
 <div style="position: relative;">
     <?php require("layout/main_content.php") ?>
     <?php include("login/register.php") ?>
-
-
 </div>
 
 <?php require("layout/foooter.php") ?>
@@ -45,9 +43,12 @@ ob_start();
 <script src="public/js/login.js">
 
 </script>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
 </script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
 
+<script src="public/js/signup.js"> </script>
 
 
 </html>

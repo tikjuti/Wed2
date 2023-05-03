@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <?php require("view/linkphone/link_phone.php") ?>
     <?php
+    // $i = 1;
     foreach ($code as $item) {
         $i = 1;
         $array = getnamecodeproduct($item['MaLoaiSP']);
@@ -69,7 +69,7 @@
 
         </div>
     <?php
-        $i = 1;
+        // $i = 1;
     }
     ?>
 </body>
