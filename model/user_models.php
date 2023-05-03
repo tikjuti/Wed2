@@ -25,24 +25,35 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
     $arrPQ = [];
     $sql1 = "SELECT * FROM danhmuccn";
     $sql2 = "SELECT * FROM ctquyencn WHERE MaQuyen = '$role'";
+    $sql3 = "SELECT * FROM ctquyencn WHERE MaQuyen = 1";
     $result = (new Connnect())->select($sql1);
     $result2 = (new Connnect())->select($sql2);
+    $result3 = (new Connnect())->select($sql3);
     foreach ($result as $each) {
         $ma_cn = $each['MaCN'];
         $ten_cn = $each['TenCN'] . "." . $each['Icon'];
-        foreach ($result2 as $each2) {
-            if ($each2['MaCN'] == $ma_cn) {
-                if (empty($arrPQ[$ten_cn]))
+        foreach ($result3 as $each3) {
+            if ($each3['MaCN'] == $ma_cn) {
+                if (empty($arrPQ[$ten_cn])) {
                     $arrPQ[$ten_cn] = [
                         'MaCN' => $ma_cn,
                         'HanhDong' => []
                     ];
+                }
             }
         }
-        foreach ($result2 as $each2) {
-            if ($each2['MaCN'] == $ma_cn) {
-                $hd = $each2['HanhDong'] . "." . $each2['Chon'];
-                array_push($arrPQ[$ten_cn]['HanhDong'], $hd);
+        foreach ($result3 as $each3) {
+            if ($each3['MaCN'] == $ma_cn) {
+                $arrPQ[$ten_cn]['HanhDong'][$each3['HanhDong']] = 0;
+            }
+        }
+        foreach ($result3 as $each3) {
+            foreach ($result2 as $each2) {
+                if ($each2['MaCN'] == $ma_cn) {
+                    if ($each2['HanhDong'] == $each3['HanhDong']) {
+                        $arrPQ[$ten_cn]['HanhDong'][$each3['HanhDong']] = $each2['Chon'];
+                    }
+                }
             }
         }
     }
@@ -50,8 +61,7 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
     foreach ($arrPQ as $key => $value) {
         $flag = 0;
         foreach ($value['HanhDong'] as $key2 => $value2) {
-            $tmp2 = preg_split("/\./", $value2);
-            if ($tmp2[1]) {
+            if ($value2) {
                 $flag = 1;
             }
         }

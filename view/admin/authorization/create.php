@@ -25,12 +25,12 @@
                             <div class="authorize-card">
                                 <header><?php echo $tmp[0] ?></header>
                                 <?php foreach ($value['HanhDong'] as $key2 => $value2) {
-                                    $tmp2 = preg_split("/\./", $value2); ?>
+                                ?>
                                     <div class="authorize-card-div">
-                                        <div><label><?php echo $tmp2[0] ?></label></div>
+                                        <div><label><?php echo $key2 ?></label></div>
                                         <div>
                                             <label class='switch'>
-                                                <input class="authorize-content-check" data-MaCN="<?php echo $value['MaCN'] ?>" data-HD="<?php echo $tmp2[0] ?>" type='checkbox'>
+                                                <input class="authorize-content-check" data-MaCN="<?php echo $value['MaCN'] ?>" data-HD="<?php echo $key2 ?>" type='checkbox'>
                                                 <span class='slider round'></span>
                                             </label>
                                         </div>

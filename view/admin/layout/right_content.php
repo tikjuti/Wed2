@@ -31,6 +31,9 @@ switch ($controller) {
     case 'authorization':
         require '../../controller/AuthorizationController.php';
         break;
+    case 'account':
+        require '../../controller/AccountController.php';
+        break;
     default:
         echo '<div class="authorize-modalbox">Không tìm thấy controller phù hợp!</div>';
 }
