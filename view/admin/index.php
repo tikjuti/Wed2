@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (empty($_SESSION['iduser'])) {
+    header('location: http://localhost/WEDNANGCAO/index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

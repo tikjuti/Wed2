@@ -27,6 +27,9 @@
     border: 1px solid black;
     cursor: pointer;
 }
+/* #header-web {
+  position: fixed;
+} */
 .header-icon {
   position: absolute;
   font-size: 1.4rem;
@@ -774,7 +777,7 @@
 
 
 .authorize-modalbox .modal-form form .form-authorize {
-  height: 700px;
+  height: auto;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -842,6 +845,7 @@
   font-family: 'Righteous', cursive;
   cursor: pointer;
   transition: background .2s;
+  margin-top: 30px;
 }
 .authorize-modalbox .modal-form form .form-button button:hover {
   background-color: green;
@@ -862,4 +866,59 @@
   background-color: white;
   color: black;
   border: 3px solid #3d3d3d;
+}
+
+.form-create-account-item {
+  width: 507px;
+  margin-left: 104px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-family: 'Righteous', cursive;
+}
+.btn-create-account {
+  margin-top: 20px;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: blue;
+  border: unset;
+  color: white;
+  font-size: 18px;
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-update-account {
+  margin-top: 20px;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: blue;
+  border: unset;
+  color: white;
+  font-size: 18px;
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-update-account:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid #3d3d3d;
+}
+.au_main .author_group table tbody tr td a .btn-edit-account {
+  background-color: blue;
+}
+.btn-create-account:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid #3d3d3d;
+}
+.form-create-account-item2 {
+  margin-top: 30px;
+  width: 500px;
+  margin-left: 71px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-family: 'Righteous', cursive;
 }

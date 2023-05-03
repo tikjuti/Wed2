@@ -11,14 +11,13 @@ if (isset($_SESSION['arrPQ'])) {
         $tmp = preg_split("/\./", $key);
         if ($tmp[0] == 'Phân quyền') {
             foreach ($value['HanhDong'] as $key2 => $value2) {
-                $tmp2 = preg_split("/\./", $value2);
-                if ($tmp2[0] == 'edit' && $tmp2[1]) {
+                if ($key2 == 'edit' && $value2) {
                     $statusEdit = 1;
                 } else
-                    if ($tmp2[0]  == 'delete' && $tmp2[1]) {
+                    if ($key2  == 'delete' && $value2) {
                     $statusDelete = 1;
                 } else
-                    if ($tmp2[0]  == 'create' && $tmp2[1]) {
+                    if ($key2  == 'create' && $value2) {
                     $statusCreate = 1;
                 }
             }
@@ -53,24 +52,35 @@ switch ($action) {
         $arrPQ = [];
         $sql1 = "SELECT * FROM danhmuccn";
         $sql2 = "SELECT * FROM ctquyencn WHERE MaQuyen = '$ma'";
+        $sql3 = "SELECT * FROM ctquyencn WHERE MaQuyen = 1";
+        $result = (new Connnect())->select($sql1);
         $result2 = (new Connnect())->select($sql2);
-        $result1 = (new Connnect())->select($sql1);
-        foreach ($result1 as $each) {
+        $result3 = (new Connnect())->select($sql3);
+        foreach ($result as $each) {
             $ma_cn = $each['MaCN'];
             $ten_cn = $each['TenCN'] . "." . $each['Icon'];
-            foreach ($result2 as $each2) {
-                if ($each2['MaCN'] == $ma_cn) {
-                    if (empty($arrPQ[$ten_cn]))
+            foreach ($result3 as $each3) {
+                if ($each3['MaCN'] == $ma_cn) {
+                    if (empty($arrPQ[$ten_cn])) {
                         $arrPQ[$ten_cn] = [
                             'MaCN' => $ma_cn,
                             'HanhDong' => []
                         ];
+                    }
                 }
             }
-            foreach ($result2 as $each2) {
-                if ($each2['MaCN'] == $ma_cn) {
-                    $hd = $each2['HanhDong'] . "." . $each2['Chon'];
-                    array_push($arrPQ[$ten_cn]['HanhDong'], $hd);
+            foreach ($result3 as $each3) {
+                if ($each3['MaCN'] == $ma_cn) {
+                    $arrPQ[$ten_cn]['HanhDong'][$each3['HanhDong']] = 0;
+                }
+            }
+            foreach ($result3 as $each3) {
+                foreach ($result2 as $each2) {
+                    if ($each2['MaCN'] == $ma_cn) {
+                        if ($each2['HanhDong'] == $each3['HanhDong']) {
+                            $arrPQ[$ten_cn]['HanhDong'][$each3['HanhDong']] = $each2['Chon'];
+                        }
+                    }
                 }
             }
         }
@@ -81,12 +91,26 @@ switch ($action) {
             Quyen = '$Quyen'
             where MaPQ ='$MaQuyen'";
         (new Connnect())->excute($sql);
+        $sql1 = "select * from ctquyencn where MaQuyen = '$MaQuyen'";
+        $result1 = (new Connnect())->select($sql1);
+        $flag = 0;
         for ($i = 0; $i < count($arrMaCN); $i++) {
-            $sql = "update ctquyencn
-                set 
-                   Chon='$arrData[$i]'
-                where MaQuyen ='$MaQuyen' and MaCN = '$arrMaCN[$i]' and HanhDong = '$arrHD[$i]'";
-            (new Connnect())->excute($sql);
+            foreach ($result1 as $each1) {
+                if ($each1['MaCN'] == $arrMaCN[$i]) {
+                    $sql = "update ctquyencn
+                    set 
+                    Chon='$arrData[$i]'
+                    where MaQuyen ='$MaQuyen' and MaCN = '$arrMaCN[$i]' and HanhDong = '$arrHD[$i]'";
+                    (new Connnect())->excute($sql);
+                    $flag = 1;
+                    break;
+                } else $flag = 0;
+            }
+            if ($flag == 0) {
+                $sql2 = "insert into ctquyencn(MaQuyen, MaCN, HanhDong, Url, Chon)
+                values ($MaQuyen, '$arrMaCN[$i]', '$arrHD[$i]', 'abc', '$arrData[$i]')";
+                (new Connnect())->excute($sql2);
+            }
         }
         break;
     case 'delete':

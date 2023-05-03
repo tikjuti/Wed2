@@ -12,11 +12,10 @@ if (isset($_SESSION['arrPQ'])) {
         $tmp = preg_split("/\./", $key);
         if ($tmp[0] == 'Khách hàng') {
             foreach ($value['HanhDong'] as $key2 => $value2) {
-                $tmp2 = preg_split("/\./", $value2);
-                if ($tmp2[0] == 'edit' && $tmp2[1]) {
+                if ($key2 == 'edit' && $value2) {
                     $statusEdit = 1;
                 } else
-                if ($tmp2[0]  == 'delete' && $tmp2[1]) {
+                if ($key2  == 'delete' && $value2) {
                     $statusDelete = 1;
                 }
             }
@@ -26,7 +25,7 @@ if (isset($_SESSION['arrPQ'])) {
 
 switch ($action) {
     case '':
-        $sql = "select * from khachhang join taikhoan on khachhang.MaTK = taikhoan.MaTK where IsDeleted=0";
+        $sql = "select * from khachhang join taikhoan on khachhang.MaTK = taikhoan.MaTK where khachhang.IsDeleted=0";
         $result = (new Connnect())->select($sql);
         break;
     case 'edit':

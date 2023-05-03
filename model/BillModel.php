@@ -11,11 +11,10 @@ if (isset($_SESSION['arrPQ'])) {
         $tmp = preg_split("/\./", $key);
         if ($tmp[0] == 'Hóa đơn') {
             foreach ($value['HanhDong'] as $key2 => $value2) {
-                $tmp2 = preg_split("/\./", $value2);
-                if ($tmp2[0] == 'detail' && $tmp2[1]) {
+                if ($key2 == 'detail' && $value2) {
                     $statusDetail = 1;
                 } else
-                if ($tmp2[0]  == 'process' && $tmp2[1]) {
+                if ($key2  == 'process' && $value2) {
                     $statusProcess = 1;
                 }
             }

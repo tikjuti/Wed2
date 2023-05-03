@@ -1,10 +1,10 @@
-<!doctype html>
-<html lang="en">
 <?php
-include 'model/sanpham.php';
 session_start();
+include 'model/sanpham.php';
 ob_start();
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
     <title>Title</title>

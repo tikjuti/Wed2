@@ -26,6 +26,9 @@
                         case 'Phân quyền':
                             $tenctl = 'authorization';
                             break;
+                        case 'Tài khoản':
+                            $tenctl = 'account';
+                            break;
                     }
             ?>
                     <a href="?controller=<?php echo $tenctl ?>" class=" category_iteam_link">
