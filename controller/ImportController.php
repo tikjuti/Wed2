@@ -12,6 +12,7 @@ switch ($action) {
         break;
     case 'addtocart':
         $ma = $_GET['ma'];
+        $mancc = $_GET['mancc'];
         require '../model/ImportModel.php';
         break;
     case 'cart':
@@ -33,8 +34,18 @@ switch ($action) {
         break;
     case 'payimport':
         $ma = $_GET['ma'];
+        $total = $_GET['total'];
         $quantity = $_GET['quantity'];
         require '../model/ImportModel.php';
+        break;
+    case 'invoices':
+        require '../../model/ImportModel.php';
+        require 'import/invoices.php';
+        break;
+    case 'detailinvoices':
+        $ma = $_GET['ma'];
+        require '../../model/ImportModel.php';
+        require 'import/detailinvoices.php';
         break;
     default:
         echo "Nhập linh tinh gì đấy !";

@@ -17,6 +17,7 @@
                 <tr>
                     <th>Mã sản phẩm</th>
                     <th>Tên sản phẩm</th>
+                    <th>Nhà cung cấp</th>
                     <th>Số lượng</th>
                     <th>Giá</th>
                     <th>Thêm vào giỏ</th>
@@ -27,8 +28,15 @@
                     <tr>
                         <td><?php echo $each['MaSP'] ?></td>
                         <td><?php echo $each['TenSP'] ?></td>
+                        <td>
+                            <select id="mancc" class="item-ma-ncc">
+                                <?php foreach ($result1 as $each1) { ?>
+                                    <option value="<?php echo $each1['MaNCC'] ?>"><?php echo $each1['TenNCC'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
                         <td><?php echo $each['SoLuongSP'] ?></td>
-                        <td><?php echo $each['GiaSP'] ?></td>
+                        <td><?php echo number_format($each['GiaSP'], 0, ',', '.') . 'VND' ?></td>
                         <td>
                             <?php if (true) {  ?>
                                 <button style="background-color: blue;" class="btn-add-cartimport" value="<?php echo $each['MaSP'] ?>">Thêm</button>
