@@ -14,8 +14,8 @@
                         style="outline:none;">Register</button>
                 </div>
                 <form id='login-register' class='input-group-login-register' action="" method="POST">
-                    <input type='text' class='input-field-register' placeholder='Email Id' name="user">
-                    <input type='password' class='input-field-register' placeholder='Enter Password' name="pass">
+                    <input type='text' class='input-field-register' placeholder='Username' name="username">
+                    <input type='password' class='input-field-register' placeholder='Enter Password' name="password">
                     <input type='checkbox' class='check-box-register'><span class="span-register">Remember
                         Password</span>
                     <input type='submit' class='submit-btn-register' name="login" value="Đăng nhập">
