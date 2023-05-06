@@ -767,7 +767,7 @@
     </div>
 
   </div>
-  <script src="../public/js/slidecontent.js">
+  <script src="public/js/slidecontent.js">
   </script>
 </body>
 

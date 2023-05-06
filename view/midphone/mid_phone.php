@@ -49,7 +49,7 @@
       console.log($(this).text());
     });
   </script>
-  <script script src="../public/js/jqueryyy.js">
+  <script script src="public/js/jqueryyy.js">
   </script>
 </body>
 

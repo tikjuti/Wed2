@@ -1,2 +1,3 @@
 <?php
-require './view/search/search.php';
+require 'view/search/search.php';
+?>

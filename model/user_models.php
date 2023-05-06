@@ -82,11 +82,13 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
             $_SESSION['MaPQ'] = $role;
             $_SESSION['iduser'] = $array['MaTK'];
             $_SESSION['namekh'] = $array1['TenKH'];
+            $_SESSION['makh'] = $array1['MaKH'];
             echo 'customer';
         } else {
             $_SESSION['MaPQ'] = $role;
             $_SESSION['iduser'] = $array['MaTK'];
             $_SESSION['namenv'] = $array1['TenNV'];
+            $_SESSION['manv'] = $array1['MaNV'];
             echo 'success';
         }
     }

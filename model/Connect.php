@@ -5,7 +5,7 @@ class Connnect
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';
-    private $database = 'wednangcao';
+    private $database = 'project';
 
     private function cnt()
     {
@@ -29,7 +29,8 @@ class Connnect
         mysqli_query($connect, $sql);
         mysqli_close($connect);
     }
-    public function last_id($sql){
+    public function last_id($sql)
+    {
         $connect = $this->cnt();
         mysqli_query($connect, $sql);
         $last_id = mysqli_insert_id($connect);

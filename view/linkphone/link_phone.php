@@ -16,7 +16,7 @@
     foreach ($code as $item) {
         $i = 1;
         $array = getnamecodeproduct($item['MaLoaiSP']);
-    ?>
+        ?>
 
         <div class="container name mt-3 mb-2 d-flex justify-content-between ">
             <h4 class="p-3 mb-0 mt-1">Điện thoại
@@ -35,7 +35,9 @@
                             <div class="card" style="width: 18rem;">
                                 <a href="index.php?control=sanphamdienthoai&id=<?php echo ($name['MaSP']) ?>" style="width:100%">
                                     <div>
-                                        <img class="card-img-top p-2" src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-vang-thumb-600x600.jpg" alt="Card image cap">
+                                        <img class="card-img-top p-2"
+                                            src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-vang-thumb-600x600.jpg"
+                                            alt="Card image cap">
                                     </div>
                                 </a>
                                 <div class="card-body">
@@ -54,10 +56,11 @@
                                     <p class="card-text product">
                                         <?php echo $name['GiaSP'] ?>
                                     </p>
-                                    <a href="#" class="btn btn-primary d-flex justify-content-center">Mua ngay</a>
+                                    <a href="index.php?control=sanphamdienthoai&id=<?php echo ($name['MaSP']) ?>"
+                                        class="btn btn-primary d-flex justify-content-center">Mua ngay</a>
                                 </div>
                             </div>
-                    <?php
+                            <?php
                             $i++;
                         } else {
                             $i++;
@@ -68,7 +71,7 @@
             </div>
 
         </div>
-    <?php
+        <?php
         // $i = 1;
     }
     ?>

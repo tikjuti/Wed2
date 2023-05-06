@@ -7,8 +7,8 @@ $row = getCategory();
         <nav class="nav-menu navbar navbar-light  ">
             <form class=" content-form d-flex  " action="index.php?list=search" method="GET">
                 <input class=" form" type="text" placeholder="Search" aria-label="Search" id="txtsearch" value="<?php if (isset($_GET['name'])) {
-                                                                                                                    echo ($_GET['name']);
-                                                                                                                } ?>" name="name">
+                    echo ($_GET['name']);
+                } ?>" name="name">
                 <!-- <input type='submit' class='submit-btn-register' name="search" value="search"> -->
                 <button type="" class="search" id="btnsearchheader">
                     <i class="fas fa-search "></i>
@@ -30,7 +30,7 @@ $row = getCategory();
                             <ul>
                                 <?php
                                 foreach ($row as $item) {
-                                ?>
+                                    ?>
                                     <li>
                                         <a href="index.php?control=dienthoai&id=<?php echo $item['MaLoaiSP'] ?>">
                                             <h5>
@@ -38,7 +38,7 @@ $row = getCategory();
                                             </h5>
                                         </a>
                                     </li>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </ul>
@@ -51,11 +51,11 @@ $row = getCategory();
                     echo ' <li><div class="loginbtn menuitem"  style="width:auto;" id="loginbtn-register"><a href="userinfo.php">' . $_SESSION['namekh'] . '</a></div></li>';
                     echo ' <li><div class="loginbtn menuitem"  style="width:auto;" id="loginbtn-register"><a href="index.php?control=thoat"> Thoát </a></div></li>';
                 } else {
-                ?>
+                    ?>
                     <li>
                         <div class="loginbtn menuitem" style="width:auto;" id="loginbtn-register">Đăng nhập/Đăng ký</div>
                     </li>
-                <?php
+                    <?php
                 }
                 ?>
 
@@ -68,5 +68,5 @@ $row = getCategory();
         </nav>
     </div>
 </div>
-<script script src="../public/js/javaa.js">
+<script script src="public/js/javaa.js">
 </script>

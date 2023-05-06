@@ -5,7 +5,7 @@ if (isset($_GET['action'])) {
 }
 switch ($action) {
     case '': {
-            require 'cart/cart.php';
+            require 'view/cart/cart.php';
             break;
         }
     case 'addcart': {
@@ -39,7 +39,7 @@ switch ($action) {
                 // header('location:index.php?list=giohang');
 
             }
-            include("cart/cart.php");
+            include("view/cart/cart.php");
             break;
         }
     case 'delcart': {
@@ -48,7 +48,7 @@ switch ($action) {
                 unset($_SESSION['giohang']);
 
             }
-            include("cart/cart.php");
+            include("view/cart/cart.php");
             break;
         }
     case 'delcartproduct': {
@@ -56,7 +56,7 @@ switch ($action) {
                 //xóa 1 phân phầnt tử
                 array_splice($_SESSION['giohang'], $_GET['i'], 1);
             }
-            include("cart/cart.php");
+            include("view/cart/cart.php");
             break;
         }
     case 'thanhtoan':

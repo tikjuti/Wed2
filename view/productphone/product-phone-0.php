@@ -12,7 +12,7 @@
 
 <body>
   <?php
-  require("slide/mid_phone_slide.php");
+  require("view/slide/mid_phone_slide.php");
   ?>
   <?php
   foreach ($array as $item) {
