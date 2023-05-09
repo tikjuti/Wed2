@@ -49,6 +49,16 @@ $(document).ready(function () {
                   arrData.push($(data[i]).is(':checked'));
             }
             var status = "update";
+            var flag = false;
+            if (Quyen.length === 0) {
+                  document.getElementById('account-authorize-error').style.display = 'block';
+                  flag = true;
+            }
+            else {
+                  document.getElementById('account-authorize-error').style.display = 'none';
+              }
+
+            if (flag == true) return true;
             
             swal({
                   title: "Bạn chắc chắn chưa?",
@@ -95,6 +105,15 @@ $(document).ready(function () {
                   arrData.push($(data[i]).is(':checked'));
             }
             var status = "store";
+            var flag = false;
+            if (Quyen.length === 0) {
+                  document.getElementById('account-authorize-error-create').style.display = 'block';
+                  flag = true;
+            }
+            else {
+                  document.getElementById('account-authorize-error-create').style.display = 'none';
+              }
+            if (flag == true) return true;
             
             swal({
                   title: "Bạn chắc chắn chưa?",

@@ -21,6 +21,10 @@ if (isset($_GET['control'])) {
                 require 'controller/cart_controller.php';
                 break;
             }
+        case 'user': {
+                require 'controller/UserInfo.php';
+                break;
+            }
         case 'thoat': {
                 unset($_SESSION['MaPQ']);
                 unset($_SESSION['iduser']);

@@ -12,9 +12,9 @@
 
 <body>
   <?php
-  require("slide/mid_phone_slide.php")
+  require("view/slide/mid_phone_slide.php")
 
-    ?>
+  ?>
   <div class="container name mt-3 mb-3 ">
     <h4 class="p-3">Điện thoại
     </h4>
@@ -33,23 +33,24 @@
     </nav>
   </div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
+  </script>
   <script>
     var id = <?php echo ($_GET['id']) ?>;
     var page = 1;
-    $(document).ready(function () {
+    $(document).ready(function() {
       read(id);
       pagination();
     });
 
-    $("#midulpagi").on("click", "li a", function (e) {
+    $("#midulpagi").on("click", "li a", function(e) {
       e.preventDefault();
       page = $(this).text();
       read(id);
       console.log($(this).text());
     });
   </script>
-  <script script src="../public/js/jqueryyy.js">
+  <script script src="public/js/jqueryyy.js">
   </script>
 </body>
 

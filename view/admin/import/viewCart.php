@@ -21,11 +21,16 @@
                 </thead>
                 <tbody class="auth_table_body">
                     <?php
+                    // unset($_SESSION['cartimport']);
                     $cart = $_SESSION['cartimport'];
+                    // echo json_encode($cart);
+                    // die();
                     $tongtien = 0;
                     foreach ($cart as $cart1) {
                         foreach ($cart1 as $ma => $each) {
-                            $thanhtien = $each['GiaSP'] * $each['quantity'];
+                            $thanhtien = ((int)$each['GiaSP'] * $each['quantity']);
+                            // echo $thanhtien;
+                            // die();
                             $tongtien += $thanhtien;
                     ?>
                             <input type="hidden" class="inp-ma-ncc" value="<?php echo $each['MaNCC'] ?>">

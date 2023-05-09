@@ -18,4 +18,7 @@ function getuserinfo($user, $pass)
     return $query;
 }
 
+
+
+
 ?>

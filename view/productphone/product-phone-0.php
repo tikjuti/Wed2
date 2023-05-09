@@ -12,7 +12,7 @@
 
 <body>
   <?php
-  require("slide/mid_phone_slide.php");
+  require("view/slide/mid_phone_slide.php");
   ?>
   <?php
   foreach ($array as $item) {
@@ -29,7 +29,8 @@
         </div>
         <div class="col-xs-6">
           <div>
-            <form method="POST" action="index.php?control=giohang&action=addcart&idsanpham=<?php echo $item['MaSP'] ?>">
+            <form method="POST" onsubmit="return checkLogin();"
+              action="index.php?control=giohang&action=addcart&idsanpham=<?php echo $item['MaSP'] ?>">
               <h2 style="text-align:center">
                 <?php echo $item['TenSP'] ?>
               </h2>
@@ -59,8 +60,8 @@
                 </div>
               </div>
               <hr color="black">
-              <input class="btn btn-primary d-flex justify-content-center" name="themgiohang" type="submit"
-                value="Mua hàng">
+              <input id="button-muahang" class="btn btn-primary d-flex justify-content-center" name="themgiohang"
+                type="submit" value="Mua hàng">
               <input class="btn btn-primary d-flex justify-content-center" name="masp" type="hidden"
                 value="<?php echo $item['MaSP'] ?>">
               <input class="btn btn-primary d-flex justify-content-center" name="tensp" type="hidden"
@@ -85,5 +86,23 @@
   ?>
   </div>
 </body>
+<script>
+
+  function checkLogin() {
+    <?php 
+      if(empty($_SESSION["namekh"])){
+          echo "
+            document.getElementById(\"login-alert\").style.display = 'block';
+            return false;
+          ";
+      }
+      else{
+        echo "return true";
+      }
+    ?>
+  }
+
+
+</script>
 
 </html>

@@ -13,7 +13,7 @@
 <body>
   <?php
   require("view/slide/mid_phone_slide.php")
-  ?>
+    ?>
   <div class="container name mt-3 mb-3 ">
     <h4 class="p-3">Điện thoại
 
@@ -34,21 +34,23 @@
     </nav>
   </div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
+    </script>
   <script>
     var page = 1;
     let search = $('#txtsearch').val();
-    $(document).ready(function() {
+    $(document).ready(function () {
       readdata(search);
       paginationsearch(search);
     });
-    $('#txtsearch').on('keypress', function(e) {
+    $('#txtsearch').on('keypress', function (e) {
       if (e.which === 13) {
         readdata(search);
         paginationsearch(search);
       }
     });
-    $("#ulpagi").on("click", "li a", function(e) {
+    $("#ulpagi").on("click", "li a", function (e) {
       e.preventDefault();
       page = $(this).text();
       readdata(search);
@@ -56,7 +58,7 @@
 
     });
   </script>
-  <script src="../../public/js/jqueryyy.js">
+  <script src="public/js/jqueryyy.js">
 
   </script>
 </body>

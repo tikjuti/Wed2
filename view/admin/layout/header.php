@@ -1,16 +1,22 @@
 <div class="row">
     <div class="col p-2">
         <div class="category">
-            <i onclick="showContentLeft()" class="fa-solid fa-bars header-icon"></i>
+            <i onclick="showContentLeft()"></i>
             <h3 class="category_heading">
-                <span>PhoneShop</span>
+                <span>PhoneMOBILE</span>
             </h3>
         </div>
     </div>
     <div class="col p-8">
         <div class="input">
-            <input type="text" placeholder="Nhập tên điện thoại cần tìm" id="search">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <!-- <input type="text" placeholder="Nhập tên điện thoại cần tìm" id="search_admin">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button> -->
+            <form class="form-search" method="GET">
+                <input type="hidden" name="controller" value="product">
+                <input type="hidden" name="action" value="search">
+                <input type="search" name="timkiem" placeholder="Tìm kiếm sản phẩm">
+                <input type="submit" value="tìm kiếm">
+            </form>
         </div>
     </div>
     <div class="col p-2">

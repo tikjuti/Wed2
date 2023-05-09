@@ -4,22 +4,25 @@ if ($action == "billstatus" || $action == "addtocart" || $action == "payimport")
 else
     require '../../model/Connect.php';
 
-// if (isset($_SESSION['arrPQ'])) {
-//     $arrPQ = $_SESSION['arrPQ'];
-//     foreach ($arrPQ as $key => $value) {
-//         $tmp = preg_split("/\./", $key);
-//         if ($tmp[0] == 'Hóa đơn') {
-//             foreach ($value['HanhDong'] as $key2 => $value2) {
-//                 if ($key2 == 'detail' && $value2) {
-//                     $statusDetail = 1;
-//                 } else
-//                 if ($key2  == 'process' && $value2) {
-//                     $statusProcess = 1;
-//                 }
-//             }
-//         }
-//     }
-// }
+if (isset($_SESSION['arrPQ'])) {
+    $arrPQ = $_SESSION['arrPQ'];
+    foreach ($arrPQ as $key => $value) {
+        $tmp = preg_split("/\./", $key);
+        if ($tmp[0] == 'Nhập hàng') {
+            foreach ($value['HanhDong'] as $key2 => $value2) {
+                if ($key2 == 'cart' && $value2) {
+                    $statusCart = 1;
+                } else
+                if ($key2  == 'import' && $value2) {
+                    $statusImport = 1;
+                } else
+                if ($key2  == 'create' && $value2) {
+                    $statusCreate = 1;
+                }
+            }
+        }
+    }
+}
 switch ($action) {
     case '':
         $sql = "select * from sanpham";
@@ -46,8 +49,6 @@ switch ($action) {
         } else {
             $_SESSION['cartimport'][$mancc][$ma]['quantity']++;
         }
-        echo json_encode($_SESSION['cartimport']);
-        die();
         break;
     case 'payimport':
         foreach ($ma as $masp) {
