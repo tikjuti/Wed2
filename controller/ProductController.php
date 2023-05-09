@@ -92,7 +92,7 @@ switch ($action) {
         $mancc = $_POST['maNCC'];
 
         require '../../model/ProductModel.php';
-        header('location: ../../index.php?controller=product');
+        echo "updatesuccess";
         break;
     case 'delete':
         $ma = $_GET['ma'];
