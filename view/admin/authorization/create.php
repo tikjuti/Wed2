@@ -8,6 +8,7 @@
                     </div>
                     <div>
                         <input type="text" name="name">
+                        <div id="account-authorize-error-create">Tên nhóm không được để trống</div>
                     </div>
                 </div>
             </div>

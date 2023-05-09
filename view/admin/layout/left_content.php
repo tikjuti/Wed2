@@ -32,6 +32,9 @@
                         case 'Nhập hàng':
                             $tenctl = 'import';
                             break;
+                        case 'Nhà cung cấp':
+                            $tenctl = 'supplier';
+                            break;
                     }
             ?>
                     <a href="?controller=<?php echo $tenctl ?>" class=" category_iteam_link">
@@ -46,4 +49,4 @@
     </nav>
 </div>
 
-<script src="public/js/index.js"></script>
+<script src="../../public/js/index.js"></script>

@@ -93,10 +93,10 @@ switch ($action) {
         (new Connnect())->excute($sql);
         $sql1 = "select * from ctquyencn where MaQuyen = '$MaQuyen'";
         $result1 = (new Connnect())->select($sql1);
-        $flag = 0;
         for ($i = 0; $i < count($arrMaCN); $i++) {
+            $flag = 0;
             foreach ($result1 as $each1) {
-                if ($each1['MaCN'] == $arrMaCN[$i]) {
+                if ($each1['MaCN'] == $arrMaCN[$i] && $each1['HanhDong'] == $arrHD[$i]) {
                     $sql = "update ctquyencn
                     set 
                     Chon='$arrData[$i]'
@@ -112,6 +112,9 @@ switch ($action) {
                 (new Connnect())->excute($sql2);
             }
         }
+        echo json_encode($arrMaCN);
+        echo json_encode($arrHD);
+        echo json_encode($arrData);
         break;
     case 'delete':
         $sql = "update phanquyen set IsDeleted = 1

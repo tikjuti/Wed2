@@ -1,0 +1,50 @@
+#update{
+    padding: 20px;
+    background-color:rgba(255 250 250)		;
+}
+#user #left{
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+    background-color:rgba(255 250 250);
+    height: fit-content;
+}
+#user #left a{
+    color: unset;
+}
+
+#form-update {
+    margin: 15px 0;
+}
+
+#user #content{
+    max-width: 900px;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+#user #content #donhang{
+    padding: 20px;
+    background-color:rgba(255 250 250)	;
+}
+
+#user #content #donhang h6,th,td{
+    padding-left: 40px;
+}
+
+#user #content #donhang td{
+    text-align: center;
+}
+
+#form-update input[type=text],input[type=date],input[type=email]   {
+    width: 450px;
+    padding: 7px 20px;
+    margin: 8px 0;
+    border:  0.001rem solid;
+    background-color: gainsboro;
+}
+#form-update input[type=submit]{
+    padding: 7px;
+    background-color:deepskyblue;
+    border-radius: 7px;
+}

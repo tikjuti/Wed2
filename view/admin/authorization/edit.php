@@ -9,6 +9,7 @@
                     <div>
                         <input type="hidden" name="ma" value="<?php echo $ma ?>">
                         <input type="text" name="name" value="<?php if ($title) echo $title ?>">
+                        <div id="account-authorize-error">Tên nhóm không được để trống</div>
                     </div>
                 </div>
             </div>

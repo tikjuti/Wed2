@@ -14,6 +14,39 @@ function getCategory()
     $query_danhmuc = (new Connnect())->select($sql_danhmuc);
     return $query_danhmuc;
 }
+function getProductCategory()
+{
+    $sql = "SELECT * FROM loaisanpham";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function getProductScreen()
+{
+    $sql = "SELECT * FROM sanpham";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+
+function getProductCamera()
+{
+    $sql = "SELECT * FROM sanpham  ";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function getProductMemory()
+{
+    $sql = "SELECT * FROM sanpham  ";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function getProductChip()
+{
+    $sql = "SELECT * FROM sanpham";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+
+
 function getCategoryall()
 {
     $sql_danhmuc = "SELECT * FROM loaisanpham ORDER BY MaLoaiSP ASC";
@@ -45,14 +78,12 @@ function getproductwithid($id, $page)
     $sql = "SELECT * FROM sanpham WHERE sanpham.MaLoaiSP ='$id' ORDER BY sanpham.MaLoaiSP LIMIT 4 OFFSET $codepage";
     $query = (new Connnect())->select($sql);
     return $query;
-
 }
 function getproductwithidall($id)
 {
     $sql = "SELECT * FROM sanpham WHERE sanpham.MaLoaiSP ='$id' ORDER BY sanpham.MaLoaiSP";
     $query = (new Connnect())->select($sql);
     return $query;
-
 }
 function getcodeproductwith($id)
 {
@@ -60,7 +91,6 @@ function getcodeproductwith($id)
     $query = (new Connnect())->select($sql);
     $array = mysqli_fetch_array($query);
     return $array;
-
 }
 function getproductwithidsearch($search, $page)
 {
@@ -68,14 +98,12 @@ function getproductwithidsearch($search, $page)
     $sql = "SELECT * FROM sanpham WHERE `TenSP` LIKE '%" . $search . "%' LIMIT 4 OFFSET  $codepage";
     $query = (new Connnect())->select($sql);
     return $query;
-
 }
 function getproductwithidsearchall($search)
 {
     $sql = "SELECT * FROM sanpham WHERE `TenSP` LIKE '%" . $search . "%' ";
     $query = (new Connnect())->select($sql);
     return $query;
-
 }
 // $sql_pro = "SELECT * FROM sanpham WHERE sanpham.MaLoaiSP ='$_GET[id]' ORDER BY sanpham.MaLoaiSP ASC LIMIT $item_per_page OFFSET $offset ";
 // $sql_cate = "SELECT * FROM loaisanpham WHERE  loaisanpham.MaLoaiSP ='$_GET[id]' LIMIT 1";
@@ -85,4 +113,13 @@ function getchitiet($id)
     $query = (new Connnect())->select($sql);
     return $query;
 }
-?>
+function getproductfromprice($min, $max)
+{
+    $sql = "SELECT * FROM `sanpham` WHERE `GiaSP` BETWEEN '$min' AND '$max'";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function cleanString($str)
+{
+    return str_replace(' ', '_', $str);
+}

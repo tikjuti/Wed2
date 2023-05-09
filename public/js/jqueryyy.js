@@ -68,7 +68,7 @@ function pagination() {
       id:id
     },
     success: function (data) {
-    console.log(data);
+
     if(data<=1){
       $('#midpagination').hide();
 

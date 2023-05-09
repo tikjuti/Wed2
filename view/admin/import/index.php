@@ -1,11 +1,11 @@
 <div class="au_main">
     <div class="title">
-        <?php if (true) {  ?>
+        <?php if (isset($statusCart)) {  ?>
             <a href="?action=cart&controller=import">
                 <button class="bnt-create-authorize"><i class="fa-solid fa-cart-shopping"></i></button>
             </a>
         <?php } else echo "Nothing"  ?>
-        <?php if (true) {  ?>
+        <?php if (isset($statusImport)) {  ?>
             <a href="?action=invoices&controller=import">
                 <button class="bnt-create-authorize invoices-import">Phiếu nhập</button>
             </a>
@@ -38,7 +38,7 @@
                         <td><?php echo $each['SoLuongSP'] ?></td>
                         <td><?php echo number_format($each['GiaSP'], 0, ',', '.') . 'VND' ?></td>
                         <td>
-                            <?php if (true) {  ?>
+                            <?php if (isset($statusCreate)) {  ?>
                                 <button style="background-color: blue;" class="btn-add-cartimport" value="<?php echo $each['MaSP'] ?>">Thêm</button>
                             <?php } else echo 'Nothing' ?>
                         </td>

@@ -22,9 +22,10 @@
           <th>Thành tiền</th>
         </tr>
         <?php
+        $tongcong = 0;
         if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
           $i = 0;
-          $tongcong = 0;
+
           ?>
           <?php
           foreach ($_SESSION['giohang'] as $item) {

@@ -1,36 +1,67 @@
-<link rel="stylesheet" href="../../public/css/reset.css">
-<h1>
-    Danh sách sản phẩm.
-</h1>
+<!-- <link rel="stylesheet" href="../../public/css/index.css"> -->
+<h1>DANH SÁCH SẢN PHẨM</h1>
+
 
 <a href="?action=create&controller=product">
-    Thêm sản phẩm
+    <button class="btn-add-index">
+        Thêm sản phẩm
+    </button>
 </a>
-<table class="table-product">
+
+<form id="filter-price" class="filter" method="GET">
+    <label>Lọc theo:</label>
+    <select class="select-filter" id="id-filter">
+        <option value="0">--Lọc theo--</option>
+        <option value="?action=characters&controller=product&kytu=asc">Ký tự A-Z</option>
+        <option value="?action=characters&controller=product&kytu=desc">Ký tự Z-A</option>
+        <option value="?action=price&controller=product&gia=asc">Giá tăng dần</option>
+        <option value="?action=price&controller=product&gia=desc">Giá giảm dần</option>
+    </select><br>
+    <label>Giá từ:</label>
+    <input type="number" name="min_price" id="min"><br>
+    <input type="hidden" name="controller" value="product"><br>
+    <label>Giá đến:</label>
+    <input type="number" name="max_price" id="max"><br>
+    <input type="hidden" name="action" value="pricerange">
+    <input id="btn-filter" type="submit" value="Lọc">
+</form>
+
+
+<table class="table-product-index">
     <tr>
         <th>Mã sản phẩm</th>
         <th>Tên sản phẩm</th>
-        <th>Ảnh sản phẩm</th>
         <th>Giá sản phẩm</th>
-        <th>Sửa</th>
+        <th>Ảnh sản phẩm</th>
+        <th>Chi tiết</th>
         <th>Xóa</th>
     </tr>
     <?php foreach ($result as $each) { ?>
         <tr>
             <td><?php echo $each['MaSP'] ?></td>
             <td><?php echo $each['TenSP'] ?></td>
-            <td><?php echo $each['AnhSP'] ?></td>
             <td><?php echo $each['GiaSP'] ?></td>
             <td>
-                <a href="?action=edit&ma=<?php echo $each['MaSP'] ?>">
-                    <button>Sửa</button>
+                <img height="100px" src="../../public/image/<?php echo $each['AnhSP'] ?>" alt="ảnh">
+            </td>
+            <td>
+                <a href="?action=edit&controller=product&ma=<?php echo $each['MaSP'] ?>">
+                    <button class="btn-detail">
+                        Chi tiết
+                    </button>
                 </a>
             </td>
             <td>
-                <a href="?action=delete&ma=<?php echo $each['MaSP'] ?>">
-                    <button>Xóa</button>
-                </a>
+                <button class="btn-delete-product" value="<?php echo $each['MaSP'] ?>">
+                    Xóa
+                </button>
             </td>
         </tr>
     <?php } ?>
 </table>
+
+<!-- Phân trang -->
+
+<?php require 'pagination.php' ?>
+
+<script src="../../public/js/product_admin.js"></script>

@@ -13,8 +13,7 @@ switch ($controller) {
         require '../../controller/ProductController.php';
         break;
     case 'staff':
-        echo "Đây là nơi quản lý nhân viên";
-        // require '../../controller/ProductController.php';
+        require '../../controller/StaffController.php';
         break;
     case 'customer':
         require '../../controller/CustomerController.php';
@@ -36,6 +35,9 @@ switch ($controller) {
         break;
     case 'import':
         require '../../controller/ImportController.php';
+        break;
+    case 'supplier':
+        require '../../controller/SupplierController.php';
         break;
     default:
         echo '<div class="authorize-modalbox">Không tìm thấy controller phù hợp!</div>';

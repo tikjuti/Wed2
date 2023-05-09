@@ -927,3 +927,661 @@
   right: 62px;
   width: 120px;
 }
+
+#account-username-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#account-password-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#account-username-error-create {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#account-password-error-create {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#account-authorize-error {
+  display: none; 
+  color: red;
+}
+#account-authorize-error-create {
+  display: none; 
+  color: red;
+}
+#customer-fullname-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#customer-username-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#customer-password-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#customer-numberphone-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#customer-birthday-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#customer-email-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#customer-address-error {
+  display: none; 
+  color: red;
+  margin-left: 160px;
+}
+#supplier-fullname-error {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-numberphone-error {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-address-error {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-email-error {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-fullname-error-create {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-numberphone-error-create {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-address-error-create {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+#supplier-email-error-create {
+  display: none; 
+  color: red;
+  margin-left: 170px;
+}
+.btn-update-supplier {
+  margin-top: 20px;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: blue;
+  border: unset;
+  color: white;
+  font-size: 18px;
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-update-supplier:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid #3d3d3d;
+}
+.form-edit-supplier-item2 {
+  margin-left: 57px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  width: 500px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-supplier-item3 {
+  margin-left: 110px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  width: 500px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-supplier-item4 {
+  margin-left: 123px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  width: 500px;
+  font-family: 'Righteous', cursive;
+}
+.btn-create-supplier {
+  margin-top: 20px;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: blue;
+  border: unset;
+  color: white;
+  font-size: 18px;
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  transition: background .2s;
+}
+.form-create-supplier-item1 {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  width: 500px;
+  font-family: 'Righteous', cursive;
+}
+
+.filter {
+  display: flex;
+  height:26px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  gap :3px;
+  text-align:center;
+  font-weight: bold;
+}
+
+.filter > input[type="number"]{
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter > select{
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter > input[type="submit"]{
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Thêm sản phẩm */
+#form-create-product {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+#form-create-product > input[type="text"] {
+  width: 650px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#form-create-product > input[type="number"] {
+  width: 650px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#form-create-product > input[type="file"] {
+  width: 650px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#form-create-product > select {
+  width: 150px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.add-product {
+  width: 200px;
+  height: 36px;
+  color: #faf4f4;
+  font-weight: bold;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sửa sản phẩm */
+#form-edit-product {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#form-edit-product > img{
+  width: 100px;
+  height: 100px;
+}
+
+#form-edit-product > input[type="text"] {
+  width: 650px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#form-edit-product > input[type="number"] {
+  width: 650px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#form-edit-product > input[type="file"] {
+  width: 650px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#form-edit-product > select {
+  width: 150px;
+  height: 26px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.edit-product {
+  width: 200px;
+  height: 36px;
+  color: #faf4f4;
+  font-weight: bold;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add-index{
+  width: 200px;
+  height: 36px;
+  color: #faf4f4;
+  font-weight: bold;
+  margin-top:8px;
+  margin-bottom:8px;
+  float:right;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+}
+
+/* Tiêu đề danh sách sản phẩm */
+h1 {
+  text-align: center;
+  margin-top:50px;
+  font-size:25px;
+
+}
+
+/*  tìm kiếm */
+.form-search{
+  display: flex;
+  flex-direction: row;
+}
+
+.form-search > input[type="search"]{
+  width: 300px;
+  border: 2px solid #fffffff8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-search > input[type="submit"]{
+  color: #fff;
+  cursor: pointer;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút xem chi tiết sản phẩm  */
+.btn-detail{
+  color: #fff;
+  cursor: pointer;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút xóa sản phẩm  */
+.btn-delete-product{
+  color: #fff;
+  cursor: pointer;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.pagination{
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: center;
+  width: 26px;
+  height: 20px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-edit{
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;;
+  font-weight: bold;
+}
+
+.table-edit td {
+  text-align: center;
+  border: 2px solid #2dd050;
+  border-radius: 3px;
+  padding: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-edit th{
+  color: #fff;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-product-index{
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;;
+  font-weight: bold;
+}
+
+.table-product-index td {
+  text-align: center;
+  border: 2px solid #2dd050;
+  border-radius: 3px;
+  padding: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-product-index th{
+  color: #fff;
+  background-color: #2dd050;
+  border: 2px solid #49d481f8;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#staff-fullname-error-create {
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-numberphone-error-create{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-date-error-create{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-email-error-create{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-address-error-create{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-username-error-create{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-password-error-create{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#form-edit-staff {
+  font-size: 1.2rem;
+}
+.form-edit-staff-header {
+  font-size: 1.6rem;
+  text-align: center;  
+}
+.form-edit-staff-item1 {
+  margin-top: 20px;
+  margin-left: 50px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.form-edit-staff-item2 {
+  margin-left: 57px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-staff-item3 {
+  margin-left: 84px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-staff-item4 {
+  margin-left: 124px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-staff-item5 {
+  margin-left: 110px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-staff-item6 {
+  margin-left: 82px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-edit-staff-item7 {
+  margin-left: 88px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.btn-create-staff {
+  margin-top: 20px;
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: blue;
+    border: unset;
+    color: white;
+    font-size: 18px;
+    font-family: 'Righteous', cursive;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-create-staff:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(34, 33, 33);
+}
+
+.btn-create-staff {
+  margin-top: 20px;
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: blue;
+    border: unset;
+    color: white;
+    font-size: 18px;
+    font-family: 'Righteous', cursive;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+#staff-fullname-error {
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-number-error{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-date-error{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-email-error{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-address-error{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-username-error{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+#staff-password-error{
+  display: none;
+  color: red;
+  margin-left: 170px;
+}
+
+.form-create-staff-item1 {
+  margin-left: 50px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-create-staff-item3 {
+  margin-left: 84px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-create-staff-item5 {
+  margin-left: 110px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.form-create-staff-item7 {
+  margin-left: 90px;
+  font-size: 1.2rem;
+  width: 500px;
+  margin-bottom: 10px;
+  font-family: 'Righteous', cursive;
+}
+.btn-update-staff {
+  margin-top: 20px;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: blue;
+  border: unset;
+  color: white;
+  font-size: 18px;
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-update-staff:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(34, 33, 33);
+}
