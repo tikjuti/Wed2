@@ -39,6 +39,22 @@ switch ($action) {
         $each = mysqli_fetch_array($result);
         break;
     case 'billstatus':
+        $sql1 = "select * 
+            from cthoadon
+            where cthoadon.MaHD ='$ma'";
+        $result = (new Connnect())->select($sql1);
+        foreach ($result as $each) {
+            $masp = $each['MaSP'];
+            $sql3 = "select * from sanpham where MaSP='$masp'";
+            $result1 = (new Connnect())->select($sql3);
+            $each1 = mysqli_fetch_array($result1);
+            $slnew = $each1['SoLuongSP'] - $each['SoLuong'];
+            $sql4 = "update sanpham
+            set 
+                SoLuongSP = '$slnew'
+            where MaSP ='$masp'";
+            (new Connnect())->excute($sql4);
+        }
         $sql = "update hoadon
             set 
                 TinhTrang = '$status'

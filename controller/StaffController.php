@@ -22,18 +22,25 @@ switch ($action) {
         require 'staff/create.php';
         break;
     case 'store':
-        $fullname = $_POST['fullname'];
-        $numberphone = $_POST['numberphone'];
-        $address = $_POST['address'];
+        $fullname = $_POST['ten'];
+        $numberphone = $_POST['sdt'];
+        $address = $_POST['diachi'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
         $email = $_POST['email'];
+        $birthday = $_POST['ngaysinh'];
         require '../model/StaffModel.php';
         break;
     case 'update':
-        $mancc = $_POST['mancc'];
-        $fullname = $_POST['fullname'];
-        $numberphone = $_POST['numberphone'];
-        $address = $_POST['address'];
+        $ma = $_POST['manv'];
+        $matk = $_POST['matk'];
+        $fullname = $_POST['ten'];
+        $numberphone = $_POST['sdt'];
+        $address = $_POST['diachi'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
         $email = $_POST['email'];
+        $birthday = $_POST['ngaysinh'];
         require '../model/StaffModel.php';
         break;
     case 'delete':

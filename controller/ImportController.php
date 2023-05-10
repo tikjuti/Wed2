@@ -21,16 +21,18 @@ switch ($action) {
     case 'changequantity':
         session_start();
         $ma = $_GET['ma'];
+        $mancc = $_GET['mancc'];
         $quantity = $_GET['quantity'];
 
         if ($quantity > 0) {
-            $_SESSION['cartimport'][$ma]['quantity'] = $quantity;
+            $_SESSION['cartimport'][$mancc][$ma]['quantity'] = $quantity;
         }
         break;
     case 'delete':
         session_start();
         $ma = $_GET['ma'];
-        unset($_SESSION['cartimport'][$ma]);
+        $mancc = $_GET['mancc'];
+        unset($_SESSION['cartimport'][$mancc][$ma]);
         break;
     case 'payimport':
         $ma = $_GET['ma'];

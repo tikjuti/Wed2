@@ -30,7 +30,7 @@
             <input class="form-edit-staff-item7" type="password" name="password" value="">
             <div id="staff-password-error-create">Password không được để trống</div>
             <br>
-            <button class="btn-create-staff">Thêm</button>
+            <button class="btn-store-staff">Thêm</button>
         </form>
     </div>
 </div>

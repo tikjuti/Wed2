@@ -28,8 +28,8 @@
                     $tongtien = 0;
                     foreach ($cart as $cart1) {
                         foreach ($cart1 as $ma => $each) {
-                            $thanhtien = ((int)$each['GiaSP'] * $each['quantity']);
-                            // echo $thanhtien;
+                            $thanhtien = ($each['GiaSP'] * $each['quantity']);
+                            // echo json_encode($each);
                             // die();
                             $tongtien += $thanhtien;
                     ?>
@@ -45,7 +45,7 @@
                                 <td><?php echo number_format($thanhtien, 0, ',', '.') . 'VND' ?></td>
                                 <td>
                                     <?php if (true) {  ?>
-                                        <button class="btn-delete-productcart" value="<?php echo $ma ?>">Xóa</button>
+                                        <button class="btn-delete-productcart" value="<?php echo $ma . '.' . $each['MaNCC'] ?>">Xóa</button>
                                     <?php } else echo 'Nothing' ?>
                                 </td>
                             </tr>

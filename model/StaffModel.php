@@ -9,7 +9,7 @@ if (isset($_SESSION['arrPQ'])) {
     $arrPQ = $_SESSION['arrPQ'];
     foreach ($arrPQ as $key => $value) {
         $tmp = preg_split("/\./", $key);
-        if ($tmp[0] == 'Nhà cung cấp') {
+        if ($tmp[0] == 'Nhân viên') {
             foreach ($value['HanhDong'] as $key2 => $value2) {
                 if ($key2 == 'edit' && $value2) {
                     $statusEdit = 1;
@@ -37,7 +37,9 @@ switch ($action) {
         $result = (new Connnect())->select($sql);
         break;
     case 'store':
-        $sql = "INSERT INTO nhanvien(TenNV, SDTNV,NgaySinh, DiaChiNV, Email, IsDeleted) VALUES ('$fullname', '$numberphone', '$address', '$email', '0')";
+        $sql = "INSERT INTO taikhoan(Username, Password, MaPQ, IsDeleted) VALUES ('$username', '$password', '3', '0')";
+        $matknew = (new Connnect())->last_id($sql);
+        $sql = "INSERT INTO nhanvien(TenNV, SDTNV, NgaySinh, EmailNV, DiaChiNV, MaTK, IsDeleted) VALUES ('$fullname', '$numberphone', '$birthday', '$email', '$address', '$matknew', '0')";
         (new Connnect())->excute($sql);
         break;
     case 'edit':
@@ -48,16 +50,23 @@ switch ($action) {
     case 'update':
         $sql = "update nhanvien
             set 
-            TenNCC = '$fullname',
-            SDT = '$numberphone',
-            DiaChi = '$address',
-            Email = '$email'
-            where MaNCC ='$mancc'";
+            TenNV = '$fullname',
+            SDTNV = '$numberphone',
+            DiaChiNV = '$address',
+            EmailNV = '$email',
+            NgaySinh = '$birthday'
+            where MaNV ='$ma'";
         (new Connnect())->excute($sql);
+        $sql1 = "update taikhoan
+            set 
+            Username = '$username',
+            Password = '$password'
+            where MaTK ='$matk'";
+        (new Connnect())->excute($sql1);
         break;
     case 'delete':
         $sql = "update nhanvien set IsDeleted = 1
-            where MaNCC ='$ma'";
+            where MaNV ='$ma'";
         (new Connnect())->excute($sql);
         break;
 }

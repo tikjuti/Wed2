@@ -51,20 +51,18 @@ switch ($action) {
         }
         break;
     case 'payimport':
-        foreach ($ma as $masp) {
-            $sql = "select * from sanpham where MaSP='$masp'";
+        for ($i = 0; $i < count($ma); $i++) {
+            $sql = "select * from sanpham where MaSP='$ma[$i]'";
             $result = (new Connnect())->select($sql);
             $each = mysqli_fetch_array($result);
-            foreach ($quantity as $each1) {
-                $new_quantity = $each['SoLuongSP'] + $each1;
-                $sql1 = "update sanpham
+            $new_quantity = $each['SoLuongSP'] + $quantity[$i];
+            $sql1 = "update sanpham
             set 
-                SoLuongSP = '$new_quantity'
-            where MaSP ='$masp'";
-                (new Connnect())->excute($sql1);
-                break;
-            }
+            SoLuongSP = '$new_quantity'
+            where MaSP ='$ma[$i]'";
+            (new Connnect())->excute($sql1);
         }
+
 
         $arrNCC_PN = [];
         $today = date("Y-m-d");

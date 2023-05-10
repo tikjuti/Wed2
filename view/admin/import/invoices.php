@@ -22,7 +22,7 @@
                         <td>
                             <?php if (true) {  ?>
                                 <a href="?action=detailinvoices&controller=import&ma=<?php echo $each['MaPN'] ?>">
-                                    <button class="bnt-create-authorize">Chi tiết</i></button>
+                                    <button style="width:80px;" class="bnt-create-authorize">Chi tiết</i></button>
                                 </a>
                             <?php } else echo "Nothing"  ?>
                         </td>

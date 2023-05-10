@@ -9,7 +9,7 @@
             <a href="?action=invoices&controller=import">
                 <button class="bnt-create-authorize invoices-import">Phiếu nhập</button>
             </a>
-        <?php } else echo "Nothing"  ?>
+        <?php } else echo "<span class='invoices-import'>Nothing</span>"  ?>
     </div>
     <div class="author_group">
         <table>
