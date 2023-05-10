@@ -7,6 +7,11 @@
 
 ?>
 <div class="container content-phone"> <a href="#">Trang chủ</a>><a href="#">Giỏ hàng</a></div>
+<div>
+  <h3>ID Đon hàng:
+    <? echo $mahd ?>
+  </h3>
+</div>
 <div class="container justify-content-center w-50 mb-3">
   <div>
     <div>
@@ -22,17 +27,33 @@
           <th>Thành tiền</th>
         </tr>
         <?php
+        $i = 0;
+        $j = 1;
         $tongcong = 0;
+        // echo ($_SESSION['soluong'][1]);
+        // var_dump($_SESSION['soluong']);
+        // var_dump($_SESSION['sanpham']);
+        // var_dump($_SESSION['thanhtien']);
+        
         if (isset($_SESSION['giohang']) && (count($_SESSION['giohang']) > 0)) {
-          $i = 0;
+          $_SESSION['soluong'][0] = 1;
+          $_SESSION['sanpham'][0] = 1;
+          $_SESSION['thanhtien'][0] = 1;
 
           ?>
           <?php
           foreach ($_SESSION['giohang'] as $item) {
-
             $thanhtien = $item[2] * $item[3];
-
             $tongcong = $tongcong + $thanhtien;
+            if (isset($_SESSION['soluong']) || isset($_SESSION['sanpham']) || isset($_SESSION['thanhtien'])) {
+              $_SESSION['soluong'][$j] = (int) $item[3];
+              $_SESSION['sanpham'][$j] = (int) $item[0];
+              $_SESSION['thanhtien'][$j] = (int) $thanhtien;
+              $j++;
+            }
+
+
+
             ?>
             <tr>
               <td>
@@ -58,7 +79,10 @@
 
             <?php
             $i++;
+
           }
+          $i = 0;
+          $j = 1;
           ?>
 
           <tr>
@@ -96,7 +120,7 @@
       <h5 class="text-center">Thông tin khách hàng</h5>
     </div>
     <div>
-      <form action="index.php?list=thanhtoan" method="POST">
+      <form action="index.php?control=giohang&action=thanhtoan" method="POST">
         <input type="hidden" name="tongdonhang" value="<?php echo ($tongcong) ?>">
         <div class="form-group">
           <label for="form-name">Họ và tên</label>
@@ -118,10 +142,20 @@
     <h4>Tổng tiền:
       <?php echo ($tongcong) ?>
     </h4>
+    <?php
+    $format = "Y/m/d";
+
+
+    ?>
+    <input type="hidden" name="date" value="<?php echo date($format, time()); ?>">
     <div> <input name="thanhtoan" type="submit" class="btn btn-primary w-100  " value="Thanh toán"></div>
     </form>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js">
+</script>
+
 </body>
 
 </html>

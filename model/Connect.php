@@ -1,11 +1,11 @@
 <?php
-
+// error_reporting(0);
 class Connnect
 {
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';
-    private $database = 'project';
+    private $database = 'wednangcao';
 
     private function cnt()
     {

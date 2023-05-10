@@ -45,11 +45,11 @@ $row = getCategory();
                         </li>
                     </ul>
                 </li>
-                <li class=""><a class="menuitem" href="index.php?control=giohang">Giỏ hàng</a></li>
+                <li class=""><a class="menuitem" href="index.php?control=giohang" onclick="return checkLogin();">Giỏ hàng</a></li>
                 <?php
                 if (isset($_SESSION['namekh']) && ($_SESSION['namekh'] != "")) {
-                    echo ' <li><div class="loginbtn menuitem"  style="width:auto;" id="loginbtn-register"><a href="userinfo.php">' . $_SESSION['namekh'] . '</a></div></li>';
-                    echo ' <li><div class="loginbtn menuitem"  style="width:auto;" id="loginbtn-register"><a href="index.php?control=thoat"> Thoát </a></div></li>';
+                    echo ' <li><div class=" menuitem"  style="width:auto;" ><a href="index.php?control=user">' . $_SESSION['namekh'] . '</a></div></li>';
+                    echo ' <li><div class=" menuitem"  style="width:auto;"><a href="index.php?control=thoat"> Thoát </a></div></li>';
                 } else {
                     ?>
                     <li>

@@ -3,10 +3,23 @@ require("Connect.php");
 
 function getAll()
 {
-    $sql = "SELECT * FROM sanpham";
+    $sql = "SELECT * FROM sanpham ORDER BY MaLoaiSP ASC";
     $result = (new Connnect())->select($sql);
     $row = mysqli_fetch_array($result);
     return $row;
+}
+function getAllproduct($page)
+{
+    $codepage = (($page - 1) * 4);
+    $sql = "SELECT * FROM sanpham ORDER BY MaLoaiSP ASC LIMIT 4 OFFSET $codepage";
+    $result = (new Connnect())->select($sql);
+    return $result;
+}
+function getAllproducts()
+{
+    $sql = "SELECT * FROM sanpham ORDER BY MaLoaiSP ASC";
+    $result = (new Connnect())->select($sql);
+    return $result;
 }
 function getCategory()
 {
@@ -14,6 +27,39 @@ function getCategory()
     $query_danhmuc = (new Connnect())->select($sql_danhmuc);
     return $query_danhmuc;
 }
+function getProductCategory()
+{
+    $sql = "SELECT * FROM sanpham,loaisanpham WHERE loaisanpham.MaLoaiSP=sanpham.MaLoaiSP GROUP BY sanpham.MaLoaiSP";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function getProductScreen()
+{
+    $sql = "SELECT * FROM sanpham GROUP BY ManHinh";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+
+function getProductCamera()
+{
+    $sql = "SELECT * FROM sanpham GROUP BY Camera ";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function getProductMemory()
+{
+    $sql = "SELECT * FROM sanpham GROUP BY DungLuong ";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+function getProductChip()
+{
+    $sql = "SELECT * FROM sanpham GROUP BY Chip ";
+    $query = (new Connnect())->select($sql);
+    return $query;
+}
+
+
 function getCategoryall()
 {
     $sql_danhmuc = "SELECT * FROM loaisanpham ORDER BY MaLoaiSP ASC";
@@ -84,5 +130,17 @@ function getchitiet($id)
     $sql = "SELECT * FROM sanpham,loaisanpham WHERE sanpham.MaLoaiSP =loaisanpham.MaLoaiSP AND sanpham.MaSP='$_GET[id]' LIMIT 1";
     $query = (new Connnect())->select($sql);
     return $query;
+}
+function getproductfromprice($min, $max)
+{
+    $sql = "SELECT * FROM `sanpham` WHERE `GiaSP` BETWEEN '$min' AND '$max'";
+    $query = (new Connnect())->select($sql);
+    return $query;
+
+
+}
+function cleanString($str)
+{
+    return str_replace(' ', '_', $str);
 }
 ?>

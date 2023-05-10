@@ -42,7 +42,7 @@ function checkEmailExists ($email)
 function createUser($user,$pass, $name, $phone, $birthday, $email, $address)
 {
     $column_acccount = "Username,Password,MaPQ";
-    $sql = "INSERT INTO taikhoan ($column_acccount) VALUES ('$user','$pass','0')";
+    $sql = "INSERT INTO taikhoan ($column_acccount) VALUES ('$user','$pass','2')";
     $conn = new Connnect();
     $id = $conn->last_id($sql);
 

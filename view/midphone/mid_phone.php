@@ -12,7 +12,7 @@
 
 <body>
   <?php
-  require("slide/mid_phone_slide.php")
+  require("view/slide/mid_phone_slide.php")
 
     ?>
   <div class="container name mt-3 mb-3 ">
@@ -33,7 +33,9 @@
     </nav>
   </div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
+    </script>
   <script>
     var id = <?php echo ($_GET['id']) ?>;
     var page = 1;
@@ -49,7 +51,7 @@
       console.log($(this).text());
     });
   </script>
-  <script script src="public/js/jqueryyy.js">
+  <script script src="public/js/jquery.js">
   </script>
 </body>
 

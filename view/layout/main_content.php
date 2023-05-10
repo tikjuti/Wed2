@@ -21,11 +21,15 @@ if (isset($_GET['control'])) {
                 require 'controller/cart_controller.php';
                 break;
             }
+        case 'user': {
+                require 'controller/UserInfo.php';
+                break;
+            }
         case 'thoat': {
                 unset($_SESSION['MaPQ']);
                 unset($_SESSION['iduser']);
                 unset($_SESSION['namekh']);
-                header('location: http://localhost/WEDNANGCAO/index.php');
+                header('location:index.php');
                 break;
             }
     }
