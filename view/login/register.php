@@ -1,11 +1,9 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 <div id="login-alert">
     <div style="position: relative;">
         <h1>Thông báo</h1>
-        <a class="" onclick="dongthongbao()"
-            style="position:absolute; right: 5px; top: 5px; font-size: 30px; cursor: pointer;">
+        <a class="" onclick="dongthongbao()" style="position:absolute; right: 5px; top: 5px; font-size: 30px; cursor: pointer;">
             <i class="fas fa-times"></i>
         </a>
     </div>
@@ -27,8 +25,7 @@
                 <div id='btn-register'></div>
                 <button type='button' onclick='login()' class='toggle-btn-register' style="outline:none;">Log
                     In</button>
-                <button type='button' onclick='register()' class='toggle-btn-register'
-                    style="outline:none;">Register</button>
+                <button type='button' onclick='register()' class='toggle-btn-register' style="outline:none;">Register</button>
             </div>
             <form id='login-register' class='input-group-login-register' method="POST">
                 <input type='text' class='input-field-register' placeholder='Username' name="username">
@@ -40,8 +37,7 @@
             <form id='register' class='input-group-register' action="index.php?list=sigup" method="POST">
                 <input type='text' class='input-field-register' placeholder='Họ và tên' required name="usersigup">
                 <input type='email' class='input-field-register' placeholder='Email Id' required name="emailsigup">
-                <input type='number' class='input-field-register' placeholder='Số điện thoại' required
-                    name="numbersigup">
+                <input type='number' class='input-field-register' placeholder='Số điện thoại' required name="numbersigup">
                 <input type='date' class='input-field-register' placeholder='Ngày sinh' required name="datesigup">
                 <input type='text' class='input-field-register' placeholder='Địa chỉ' required>
                 <input type='password' class='input-field-register' placeholder='Enter Password' required>
@@ -58,8 +54,8 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js">
 </script>
 <script type="text/javascript">
-    $("#login-register").submit(function (e) {
-        e.preventDefault();
+    $("#login-register").submit(function(e) {
+        // e.preventDefault();
         var username = $('input[name="username"]').val();
         var password = $('input[name="password"]').val();
         $.ajax({
@@ -69,7 +65,7 @@
                 'username': username,
                 'password': password
             },
-            success: function (response) {
+            success: function(response) {
                 if (response == 'success')
                     location.href = "view/admin/index.php";
                 else

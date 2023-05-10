@@ -1,4 +1,8 @@
+
+
 // Xử lý giữ lại giá trị trên combobox
+
+
 $(document).ready(function () {
       var active = location.search;
       $('#id-filter option[value="' + active + '"]').attr('selected', 'selected');
@@ -125,12 +129,20 @@ $(document).ready(function () {
             e.preventDefault();
             //lấy giá trị
             var max_price = $('#max').val();
-            var max_price = $('#min').val();
+            var min_price = $('#min').val();
 
 
             //kiểm tra dữ liệu nhập vào
-            if (max_price == '' && max_price == '') {
+            if (min_price == '' && max_price == '') {
                   alert("Vui lòng nhập giá để lọc");
+                  return false;
+            }
+            if (min_price == '' && max_price != '') {
+                  alert("Vui lòng nhập giá bắt đầu");
+                  return false;
+            }
+            if (min_price != '' && max_price == '') {
+                  alert("Vui lòng nhập giá kết thúc");
                   return false;
             }
 

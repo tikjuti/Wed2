@@ -1,6 +1,29 @@
 <?php
 
-require '../../model/Connect.php';
+if ($action == "delete")
+    require '../model/Connect.php';
+else
+    require '../../model/Connect.php';
+
+if (isset($_SESSION['arrPQ'])) {
+    $arrPQ = $_SESSION['arrPQ'];
+    foreach ($arrPQ as $key => $value) {
+        $tmp = preg_split("/\./", $key);
+        if ($tmp[0] == 'Sản phẩm') {
+            foreach ($value['HanhDong'] as $key2 => $value2) {
+                if ($key2 == 'edit' && $value2) {
+                    $statusEdit = 1;
+                } else
+                    if ($key2  == 'delete' && $value2) {
+                    $statusDelete = 1;
+                } else
+                    if ($key2  == 'create' && $value2) {
+                    $statusCreate = 1;
+                }
+            }
+        }
+    }
+}
 
 switch ($action) {
     case '':
@@ -37,9 +60,9 @@ switch ($action) {
         break;
     case 'store': //Thêm sản phẩm
 
-        $sql = "INSERT INTO sanpham(TenSP, AnhSP, GiaSP, MaLoaiSP,SoLuongSP,ManHinh,Camera,DungLuong,Chip,MaNCC)
+        $sql = "INSERT INTO sanpham(TenSP, AnhSP, GiaSP, MaLoaiSP,SoLuongSP,ManHinh,Camera,DungLuong,Chip,MaNCC,IsDeleted)
         values ('$ten', '$file_name', '$gia', '$maloai','$soluong',
-        '$manhinh','$camera','$dungluong','$chip','$mancc')";
+        '$manhinh','$camera','$dungluong','$chip','$mancc','0')";
 
         $result = (new Connnect())->select($sql);
         break;
@@ -80,8 +103,8 @@ switch ($action) {
         (new Connnect())->excute($sql);
         break;
     case 'delete':
-        $sql = "UPDATE sanPham set IsDeleted = 1
-            WHERE MaSP ='$ma'";
+        $sql = "update sanpham set IsDeleted = 1
+        where MaSP ='$ma'";
         (new Connnect())->excute($sql);
         break;
     case 'search': // tìm kiếm

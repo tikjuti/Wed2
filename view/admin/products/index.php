@@ -1,12 +1,13 @@
 <!-- <link rel="stylesheet" href="../../public/css/index.css"> -->
 <h1>DANH SÁCH SẢN PHẨM</h1>
 
-
-<a href="?action=create&controller=product">
-    <button class="btn-add-index">
-        Thêm sản phẩm
-    </button>
-</a>
+<?php if (isset($statusCreate)) {  ?>
+    <a href="?action=create&controller=product">
+        <button class="btn-add-index">
+            Thêm sản phẩm
+        </button>
+    </a>
+<?php } else echo "Nothing"  ?>
 
 <form id="filter-price" class="filter" method="GET">
     <label>Lọc theo:</label>
@@ -45,16 +46,20 @@
                 <img height="100px" src="../../public/image/<?php echo $each['AnhSP'] ?>" alt="ảnh">
             </td>
             <td>
-                <a href="?action=edit&controller=product&ma=<?php echo $each['MaSP'] ?>">
-                    <button class="btn-detail">
-                        Chi tiết
-                    </button>
-                </a>
+                <?php if (isset($statusEdit)) {  ?>
+                    <a href="?action=edit&controller=product&ma=<?php echo $each['MaSP'] ?>">
+                        <button class="btn-detail">
+                            Chi tiết
+                        </button>
+                    </a>
+                <?php } else echo "Nothing"  ?>
             </td>
             <td>
-                <button class="btn-delete-product" value="<?php echo $each['MaSP'] ?>">
-                    Xóa
-                </button>
+                <?php if (isset($statusDelete)) {  ?>
+                    <button class="btn-delete-product" value="<?php echo $each['MaSP'] ?>">
+                        Xóa
+                    </button>
+                <?php } else echo "Nothing"  ?>
             </td>
         </tr>
     <?php } ?>

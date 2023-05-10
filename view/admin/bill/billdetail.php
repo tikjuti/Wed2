@@ -11,7 +11,6 @@
                     <th>Đơn giá</th>
                     <th>Thành tiền</th>
                     <th>Tình trạng</th>
-                    <th>Xử lý</th>
                 </tr>
             </thead>
             <?php
@@ -30,15 +29,6 @@
                             <td><?php echo number_format($each['Gia'], 0, ',', '.') . 'VND' ?></td>
                             <td><?php echo number_format($thanhtien, 0, ',', '.') . 'VND' ?></td>
                             <td><?php echo $each['TinhTrang'] ?></td>
-                            <td>
-                                <?php if (isset($statusProcess)) {
-                                    if ($each['TinhTrang'] == 0)
-                                        echo '<button class="btn-process-bill" value="' . $each['MaHD'] . '">Xử lý</button>';
-                                    else
-                                        echo 'Đã xử lý';
-                                } else    echo 'Nothing';
-                                ?>
-                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

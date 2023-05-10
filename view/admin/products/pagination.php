@@ -13,7 +13,7 @@
                   <?php echo $i ?>
             </a>
       <?php } elseif (isset($_GET['min_price']) && isset($_GET['max_price'])) { ?>
-            <a class="pagination" href="?pagination=<?php echo $i ?>&min_price=<?php echo $min_price ?>&max_price=<?php echo $max_price ?>&action=pricerange">
+            <a class="pagination" href="?pagination=<?php echo $i ?>&controller=product&min_price=<?php echo $min_price ?>&max_price=<?php echo $max_price ?>&action=pricerange">
                   <?php echo $i ?>
             </a>
       <?php } else { ?>

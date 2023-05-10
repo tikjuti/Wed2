@@ -3,6 +3,7 @@
         <div class="form-edit-customer-header">THÔNG TIN NHÂN VIÊN</div>
         <form id="form-edit-customer">
             <input type="hidden" name="manv" value="<?php echo $each['MaNV'] ?>">
+            <input type="hidden" name="matk" value="<?php echo $each['MaTK'] ?>">
             <br>
             Tên nhân viên
             <input class="form-create-staff-item1" type="text" name="fullname" value="<?php echo $each['TenNV'] ?>">

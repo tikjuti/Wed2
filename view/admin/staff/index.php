@@ -1,6 +1,6 @@
 <div class="au_main">
     <div class="title">
-        <?php if (true) {  ?>
+        <?php if (isset($statusCreate)) {  ?>
             <a href="?action=create&controller=staff">
                 <button class="btn-create-staff">Thêm</button>
             </a>
@@ -36,14 +36,14 @@
                         <td><?php echo $each['Username'] ?></td>
                         <td><?php echo $each['Password'] ?></td>
                         <td>
-                            <?php if (true) {  ?>
+                            <?php if (isset($statusEdit)) {  ?>
                                 <a href="?action=edit&controller=staff&ma=<?php echo $each['MaNV'] ?>">
                                     <button style="background-color: blue;" class="btn-edit-staff">Sửa</button>
                                 </a>
                             <?php } else echo 'Nothing' ?>
                         </td>
                         <td>
-                            <?php if (true) { ?>
+                            <?php if (isset($statusDelete)) { ?>
                                 <button class="btn-delete-staff" value="<?php echo $each['MaNV'] ?>">Xóa</button>
                             <?php } else echo 'Nothing' ?>
                         </td>

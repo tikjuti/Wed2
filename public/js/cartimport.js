@@ -33,12 +33,14 @@ $(document).ready(function () {
                 .then((willDelete) => {
                       if (willDelete) {
                         var deleteid = $(this).val();
+                        var tmp = deleteid.split(".");
                         var status = "delete";
                             $.ajax({
                                   type: "GET",
                                   url: "../../controller/ImportController.php",
                                   data:  {
-                                        'ma': deleteid,
+                                        'ma': tmp[0],
+                                        'mancc': tmp[1],
                                         'action': status
                                   },
                                     success: function () {
@@ -98,9 +100,11 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.change-quanty-cartimport').on('change', () => {
           var data = document.querySelectorAll('.change-quanty-cartimport');
+          var manccTMP = document.querySelectorAll('.inp-ma-ncc');
           for (let i = 0; i < data.length; i++) {
             var deleteid = $(data[i]).val();
             var ma = data[i].dataset.ma;
+            var mancc = $(manccTMP[i]).val();
             var status = "changequantity";
             $.ajax({
                     type: "GET",
@@ -108,6 +112,7 @@ $(document).ready(function () {
                     data: {
                             'quantity': deleteid,
                             'ma': ma,
+                            'mancc': mancc,
                             'action': status,
                         },
                     success: function () {

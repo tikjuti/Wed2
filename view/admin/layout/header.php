@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row header-web">
     <div class="col p-2">
         <div class="category">
             <i onclick="showContentLeft()"></i>
             <h3 class="category_heading">
-                <span>PhoneMOBILE</span>
+                <span>MOBILEPhone</span>
             </h3>
         </div>
     </div>

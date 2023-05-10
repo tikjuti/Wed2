@@ -26,6 +26,7 @@ $(document).ready(function () {
                                     //     if(response == 200){
                                           //     alert("Xóa khách hàng thành công");
                                               window.location.reload();
+                                          
                                     //     }else if(response == 500){
                                     //           swal("Error!", "Somthing went wrong!","error");
                                     //     }
