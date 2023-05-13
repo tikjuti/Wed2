@@ -52,57 +52,9 @@
       </div>
     </div>
   </section>
-  <script src="../public/js/javaslidephone.js">
+  <script src="public/js/javaslidephone.js">
   </script>
-  <!-- <script>
-    const imgnumberr = document.querySelectorAll('.slider-content-left-top_phone img')
-    let indexx = 0
-    const rightbtnn = document.querySelector('.fa-chevron-right')
-    const leftbtnn = document.querySelector('.fa-chevron-left')
-    rightbtnn.addEventListener("click", function () {
-      indexx = indexx + 1
-      if (indexx > imgnumberr.length - 1) {
-        indexx = 0
-      }
-      removeactive()
-      document.querySelector('.slider-content-left-top_phone').style.right = indexx * 100 + "%"
-      imgnumberlii[indexx].classList.add("active_phone")
-      document.querySelector('.slider-content-left-top_phone').style.right = indexx * 100 + "%"
-    })
-    leftbtnn.addEventListener("click", function () {
-      indexx = indexx - 1
-      if (indexx < 0) {
-        indexx = imgnumberr.length - 1;
-      }
-      removeactive()
-      document.querySelector('.slider-content-left-top_phone').style.right = indexx * 100 + "%"
-      imgnumberlii[indexx].classList.add("active_phone")
-      document.querySelector('.slider-content-left-top_phone').style.right = indexx * 100 + "%"
-    })
-    const imgnumberlii = document.querySelectorAll('.slider-content-left-bottom_phone ul li button')
 
-    imgnumberlii.forEach(function (imagee, indexx) {
-      imagee.addEventListener("click", function () {
-        removeactive()
-        document.querySelector('.slider-content-left-top_phone').style.right = indexx * 100 + "%"
-        imagee.classList.add("active_phone")
-      })
-    })
-    function removeactive() {
-      let imgactive = document.querySelector('.active_phone')
-      imgactive.classList.remove("active_phone")
-    }
-    function imgauto() {
-      indexx = indexx + 1
-      if (indexx > imgnumberr.length - 1) {
-        indexx = 0
-      }
-      removeactive()
-      document.querySelector('.slider-content-left-top_phone').style.right = indexx * 100 + "%"
-      imgnumberlii[indexx].classList.add("active_phone")
-    }
-    setInterval(imgauto, 5000)
-  </script> -->
 </body>
 
 </html>

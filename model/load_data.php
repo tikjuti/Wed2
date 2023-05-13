@@ -1,20 +1,19 @@
 <?php
 include 'sanpham.php';
-$search = $_GET['search'];
 $page = $_GET['page'];
-$arrayproduct = getproductwithidsearch($search, $page);
+$arrayproduct = getAllproduct($page);
 $data = '';
 foreach ($arrayproduct as $item) {
-    $data .= '<div class="card-product" style="width:25%;" style=" margin: 0rem">';
+    $data .= '<div class="card-product" style="width: 25%;" style=" margin: 0rem">';
     $data .= '<a href="index.php?control=sanphamdienthoai&id=' . $item['MaSP'] . '"style="width:100%">';
     $data .= '<div>';
     $data .= '   <img class="card-img-top p-2"
-    src="public/image/' . $item['AnhSP'] . '"
+                src="public/image/' . $item['AnhSP'] . '"
         alt="Card image cap">';
     $data .= '</div>';
     $data .= ' </a>';
     $data .= '<div class="card-body">';
-    $data .= '<h5 class="card-title"><a href="#">';
+    $data .= '<h5 class="card-title"><a  href="index.php?control=sanphamdienthoai&id=' . $item['MaSP'] . '"    ">';
     $data .= $item['TenSP'];
     $data .= '</a></h5>';
     $data .= '<div class="card-text"><span>';

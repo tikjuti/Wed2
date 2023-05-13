@@ -169,7 +169,7 @@ $(document).ready(function () {
                                           'action': status
                                     },
                                       success: function () {
-                                                location.href="http://localhost/WEDNANGCAO/view/admin/index.php?controller=customer";
+                                                location.href="/view/admin/index.php?controller=customer";
                                     }
                               });
                         } else {

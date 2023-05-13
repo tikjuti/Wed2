@@ -11,20 +11,22 @@ function getOrderByUser($makh)
 
 function getDetailOrder($mahd)
 {
-    $sql = "SELECT sanpham.AnhSP,sanpham.TenSP,sanpham.GiaSP,cthoadon.SoLuong,cthoadon.Gia
+    $sql = "SELECT sanpham.DungLuong,sanpham.ManHinh,sanpham.Chip, sanpham.AnhSP,sanpham.TenSP,sanpham.GiaSP,cthoadon.SoLuong,cthoadon.Gia
     FROM cthoadon
     INNER JOIN sanpham ON cthoadon.MaSP=sanpham.MaSP and cthoadon.MaHD = $mahd;";
     // $sql = "SELECT sanpham.AnhSP,sanpham.TenSP,sanpham.GiaSP,cthoadon.SoLuong,cthoadon.Gia FROM cthoadon,sanpham WHERE cthoadon.MaHD = $mahd and cthoadon.MaSP = sanpham.MaSP";
     $result = (new Connnect())->select($sql);
     return $result;
 }
-function getUser($matk){
+function getUser($matk)
+{
     $sql = "SELECT * FROM khachhang WHERE MaTK=$matk";
     $query = (new Connnect())->select($sql);
     return $query;
 }
 
-function updateUser($MaKH,$TenTK,$SDTKH,$NgaySinh,$EmailKH,$DiaChi){
+function updateUser($MaKH, $TenTK, $SDTKH, $NgaySinh, $EmailKH, $DiaChi)
+{
     $sql = "UPDATE khachhang
             SET 
             TenKH = '$TenTK',
@@ -36,5 +38,3 @@ function updateUser($MaKH,$TenTK,$SDTKH,$NgaySinh,$EmailKH,$DiaChi){
     $query = (new Connnect())->select($sql);
     return $query;
 }
-
-?>

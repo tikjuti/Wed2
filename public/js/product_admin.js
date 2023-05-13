@@ -150,4 +150,46 @@ $(document).ready(function () {
       });
 });
 
+$(document).ready(function () {
+      $('#form-edit-product').submit(function (e) {
+            e.preventDefault();
+            //lấy giá trị
+            var tenSP = $('#txtTenSP').val();
+            var soLuong = $('#txtSoLuong').val();
+            // var anhSP = $('#txtAnhSP').val();      
+            var giaSP = $('#txtGiaSP').val();
+            var manHinh = $('#txtManHinh').val();
+            var camera = $('#txtCamera').val();
+            var dungLuong = $('#txtDungLuong').val();
+            var chip = $('#txtChip').val();
+
+            // alert(tenSP);
+            //kiểm tra dữ liệu nhập vào
+            if (tenSP == '') {
+                  alert("Vui lòng nhập tên sản phẩm");
+                  return false;
+            }else if(soLuong == ''){
+                  alert("Vui lòng nhập số lượng sản phẩm");
+                  return false;
+            }else if (giaSP == '') {
+                  alert("Vui lòng nhập giá sản phẩm");
+                  return false;
+            }else if (manHinh == '') {
+                  alert("Vui lòng nhập màn hình sản phẩm");
+                  return false;
+            }else if (camera == '') {
+                  alert("Vui lòng nhập màn hình sản phẩm");
+                  return false;
+            }else if (dungLuong == '') {
+                  alert("Vui lòng nhập dung lượng sản phẩm");
+                  return false;
+            }else if (chip == '') {
+                  alert("Vui lòng nhập chip sản phẩm");
+                  return false;
+            }
+
+            this.submit();
+      });
+});
+
 

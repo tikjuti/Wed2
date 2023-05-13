@@ -5,6 +5,12 @@
             <h3 class="category_heading">
                 <span>MOBILEPhone</span>
             </h3>
+
+        </div>
+        <div class=" ml-auto iconmenu">
+            <button class="menu-btn">
+                <i class="fas fa-bars bar"></i>
+            </button>
         </div>
     </div>
     <div class="col p-8">
@@ -28,3 +34,4 @@
         </a>
     </div>
 </div>
+<script src="../../public/js/responsive_admin.js"></script>

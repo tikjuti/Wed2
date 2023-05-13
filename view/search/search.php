@@ -58,7 +58,7 @@
 
     });
   </script>
-  <script src="public/js/jqueryyy.js">
+  <script src="public/js/jquery.js">
 
   </script>
 </body>

@@ -13,7 +13,7 @@
 
 <body>
     <?php
-
+    require 'view/slide/mid_phone_slide.php';
     // $categories = $product->getCategories();
 // $brands = $product->getBrand();
 // $materials = $product->getMaterial();
@@ -46,13 +46,13 @@
                     </div>
                 </div>
                 <form method="POST" id="search_form">
-                    <div class ="d-flex">
-        <div class="panel list">
+                    <div class ="d-flex justify-content-around">
+        <div class="panel list ">
                         <div class="panel-heading click_filter">
-                            <h3 class="panel-title "  data-target="#panelTwo" aria-expanded="true">
+                            <h3 class="panel-title " aria-expanded="true"  data-toggle="collapse" data-target="#panelOne" id="click_filter">
                                 Material</h3>
                         </div>
-                        <div class="panel-body filter_none in list_filter" id="panelTwo">
+                        <div class="panel-body filter_none in list_filter" id="panelOne">
                             <ul class="list-group">
                                 <?php
 
@@ -65,22 +65,22 @@
                                         }
                                     }
                                     ?>
-                                                <li class="list-group-item">
-                                                    <div class="checkbox"><label><input type="checkbox"
-                                                                value="<?php echo $product = cleanString($key['TenLoaiSP']); ?>"
-                                                                <?php echo @$categoryCheck; ?> name="category[]"
-                                                                class="sort_rang category"><?php echo ucfirst($key['TenLoaiSP']); ?></label></div>
-                                                </li>
+                                                                                                                                                                                                        <li class="list-group-item">
+                                                                                                                                                                                                            <div class="checkbox"><label><input type="checkbox"
+                                                                                                                                                                                                                        value="<?php echo $product = cleanString($key['TenLoaiSP']); ?>"
+                                                                                                                                                                                                                        <?php echo @$categoryCheck; ?> name="category[]"
+                                                                                                                                                                                                                        class="sort_rang category"><?php echo ucfirst($key['TenLoaiSP']); ?></label></div>
+                                                                                                                                                                                                        </li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
         <div class="panel list">
                         <div class="panel-heading click_filter">
-                            <h3 class="panel-title" data-target="#panelOne" aria-expanded="true">
+                            <h3 class="panel-title"  data-toggle="collapse" data-target="#panelTwo" aria-expanded="true" id="click_filter">
                                 Màn hình</h3>
                         </div>
-                        <div class="panel-body filter_none in list_filter" id="panelOne">
+                        <div class="panel-body filter_none in list_filter" id="panelTwo">
                             <ul class="list-group">
                                 <?php
                                 foreach ($screen as $key) {
@@ -92,20 +92,20 @@
                                         }
                                     }
                                     ?>
-                                                    <li class="list-group-item">
-                                                        <div class="checkbox"><label><input type="checkbox"
-                                                                    value="<?php echo ($key['ManHinh']); ?>" <?php echo @$screenChecked; ?> name="screen[]" class="sort_rang screen"><?php echo ucfirst($key['ManHinh']); ?></label></div>
-                                                    </li>
+                                                                                                                                                                                                            <li class="list-group-item">
+                                                                                                                                                                                                                <div class="checkbox"><label><input type="checkbox"
+                                                                                                                                                                                                                            value="<?php echo ($key['ManHinh']); ?>" <?php echo @$screenChecked; ?> name="screen[]" class="sort_rang screen"><?php echo ucfirst($key['ManHinh']); ?></label></div>
+                                                                                                                                                                                                            </li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
         <div class="panel list">
                         <div class="panel-heading click_filter">
-                            <h3 class="panel-title" data-target="#panelOne" aria-expanded="true">
+                            <h3 class="panel-title"  data-toggle="collapse" data-target="#panelThree" aria-expanded="true" id="click_filter">
                                 Camera</h3>
                         </div>
-                        <div class="panel-body filter_none in list_filter" id="panelOne">
+                        <div class="panel-body filter_none in list_filter" id="panelThree">
                             <ul class="list-group">
                                 <?php
                                 foreach ($camera as $key) {
@@ -117,20 +117,20 @@
                                         }
                                     }
                                     ?>
-                                                                                                        <li class="list-group-item">
-                                                                                                            <div class="checkbox"><label><input type="checkbox"
-                                                                                                                        value="<?php echo $product = cleanString($key['Camera']); ?>" <?php echo @$cameraChecked; ?> name="camera[]" class="sort_rang camera"><?php echo ucfirst($key['Camera']); ?></label></div>
-                                                                                                        </li>
+                                                                                                                                                                                                                                                                <li class="list-group-item">
+                                                                                                                                                                                                                                                                    <div class="checkbox"><label><input type="checkbox"
+                                                                                                                                                                                                                                                                                value="<?php echo $product = cleanString($key['Camera']); ?>" <?php echo @$cameraChecked; ?> name="camera[]" class="sort_rang camera"><?php echo ucfirst($key['Camera']); ?></label></div>
+                                                                                                                                                                                                                                                                </li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
         <div class="panel list">
                         <div class="panel-heading click_filter">
-                            <h3 class="panel-title" data-target="#panelOne" aria-expanded="true">
+                            <h3 class="panel-title"  data-toggle="collapse" data-target="#panelFour" aria-expanded="true" id="click_filter">
                                 Dung Lượng</h3>
                         </div>
-                        <div class="panel-body filter_none in list_filter" id="panelOne">
+                        <div class="panel-body filter_none in list_filter" id="panelFour">
                             <ul class="list-group">
                                 <?php
                                 foreach ($memory as $key) {
@@ -142,20 +142,20 @@
                                         }
                                     }
                                     ?>
-                                                    <li class="list-group-item">
-                                                        <div class="checkbox"><label><input type="checkbox"
-                                                                    value="<?php echo ($key['DungLuong']); ?>" <?php echo @$memoryChecked; ?> name="memory[]" class="sort_rang memory"><?php echo ucfirst($key['DungLuong']); ?></label></div>
-                                                    </li>
+                                                                                                                                                                                                            <li class="list-group-item">
+                                                                                                                                                                                                                <div class="checkbox"><label><input type="checkbox"
+                                                                                                                                                                                                                            value="<?php echo ($key['DungLuong']); ?>" <?php echo @$memoryChecked; ?> name="memory[]" class="sort_rang memory"><?php echo ucfirst($key['DungLuong']); ?></label></div>
+                                                                                                                                                                                                            </li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
         <div class="panel list">
             <div class="panel-heading click_filter">
-                <h3 class="panel-title"  data-target="#panelOne" aria-expanded="true">
+                <h3 class="panel-title"   data-toggle="collapse" data-target="#panelFive" aria-expanded="true" id="click_filter">
                     Chip</h3>
             </div>
-            <div class="panel-body filter_none in list_filter" id="panelOne">
+            <div class="panel-body filter_none in list_filter" id="panelFive">
                 <ul class="list-group">
                     <?php
                     foreach ($chip as $key) {
@@ -167,20 +167,20 @@
                             }
                         }
                         ?>
-                                    <li class="list-group-item">
-                                        <div class="checkbox"><label><input type="checkbox"
-                                                    value="<?php echo ($key['Chip']); ?>" <?php echo @$chipChecked; ?> name="chip[]" class="sort_rang chip"><?php echo ucfirst($key['Chip']); ?></label></div>
-                                    </li>
+                                                                                                                                                                                            <li class="list-group-item">
+                                                                                                                                                                                                <div class="checkbox"><label><input type="checkbox"
+                                                                                                                                                                                                            value="<?php echo ($key['Chip']); ?>" <?php echo @$chipChecked; ?> name="chip[]" class="sort_rang chip"><?php echo ucfirst($key['Chip']); ?></label></div>
+                                                                                                                                                                                            </li>
                     <?php } ?>
                 </ul>
             </div>
         </div>
         <div class="panel list">
-                        <div class="panel-heading click_filter">
-                            <h3 class="panel-title"  data-target="#panelOne" aria-expanded="true">
+                        <div class="panel-heading " >
+                            <h3 class="panel-title"   data-toggle="collapse" data-target="#panelSix" aria-expanded="true" id="click_filter">
                                 Sort By </h3>
                         </div>
-                        <div class="panel-body filter_none in list_filter" id="panelOne">
+                        <div class="panel-body filter_none in list_filter" id="panelSix">
                             <div class="radio disabled">
                                 <label><input type="radio" name="sorting" value="newest" <?php if (isset($_POST['sorting']) && ($_POST['sorting'] == 'newest' || $_POST['sorting'] == '')) {
                                     echo "checked";
@@ -214,73 +214,16 @@
                  
     </div>
     <div id="non-search-up">
-        <?php
-        // $i = 1;
-        foreach ($code as $item) {
-            $i = 1;
-            $array = getnamecodeproduct($item['MaLoaiSP']);
-            var_dump($array);
-            ?>
 
                             <div class="container name mt-3 mb-2 d-flex justify-content-between ">
-                                <h4 class="p-3 mb-0 mt-1">Điện thoại
-                                    <?php echo ($item['TenLoaiSP']) ?>
+                                <h4 class="p-3 mb-0 mt-1">Sản Phẩm
                                 </h4>
-                                <a href="index.php?control=dienthoai&id=<?php echo ($item['MaLoaiSP']) ?>" class="a-midle">
-                                    Xem thêm
-                                </a>
                             </div>
                             <div class="container pr-0 pl-0 bg-white container-product">
                                 <div class="container-fluid pr-0 pl-0 mb-4 mt-2 compoment ">
 
-                <div class="d-flex">
-                    
-                    <?php foreach ($array as $name) {
-                        if ($i < 5) { ?>
-                                            <div class="card" style="width: 18rem;">
-                                                <a href="index.php?control=sanphamdienthoai&id=<?php echo ($name['MaSP']) ?>"
-                                                    style="width:100%">
-                                                    <div>
-                                                        <img class="card-img-top p-2"
-                                                            src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-vang-thumb-600x600.jpg"
-                                                            alt="Card image cap">
-                                                    </div>
-                                                </a>
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><a href="#">
-                                                            <?php echo $name['TenSP'] ?>
-                                                        </a></h5>
-                                                    <div class="card-text"><span>6.7"</span><span>
-                                                            <?php echo $name['ManHinh'] ?>
-                                                        </span></div>
-                                                    <div class="card-text mt-3 mb-2">
-                                                        <div class="btn btn-primary btn-memory">
-                                                            <?php echo $name['DungLuong'] ?>
-                                                        </div>
-
-                                                    </div>
-                                                    <p class="card-text product">
-                                                        <?php echo $name['GiaSP'] ?>
-                                                    </p>
-                                                    <a href="index.php?control=sanphamdienthoai&id=<?php echo ($name['MaSP']) ?>"
-                                                        class="btn btn-primary d-flex justify-content-center">Mua ngay</a>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            $i++;
-                        } else {
-                            $i++;
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-
-                            </div>
-                            <?php
-                            $i = 1;
-        }
-        ?>
+                <div class="d-flex flex-wrap" id="total">
+               
     </div>
     </div>
     <div id="search-up" class="d-flex flex-wrap">
@@ -291,6 +234,11 @@
 
       </ul>
     </nav>
+    <nav aria-label="Page navigation example " id="middpagination">
+      <ul class="pagination m-3 pb-3" id="midullpagi">
+
+      </ul>
+    </nav>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous">
         </script>
@@ -298,30 +246,42 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
         type="text/javascript"></script>
- 
+  
     <script type="text/javascript">
+        var page=1;
         var x=document.querySelectorAll('.click_filter');
-        var z=document.querySelectorAll('.list_filter')
+        var z=document.querySelectorAll('.list_filter');
         var i;
         for(i=0;i<x.length;i++){
             var y=z[i];
           
             x[i].addEventListener("click", function (){
-                console.log(x[i]);
+                console.log(y);
             });
             
             console.log(y);
         }
+        $(document).ready(function () {
+      readd();
+      paginationall();
+    });
+
+$("#midulpagi").on("click", "li a", function (e) {
+      e.preventDefault();
+      page = $(this).text();
+      readd();
+      console.log(page);
+
+    });
+  
+    </script>
+       <script src="public/js/jquery.js"  type="text/javascript">
+  
+    </script>
+        <script src="public/js/price-ran.js"  type="text/javascript">
+
+    </script>
      
-        
-var page=1;
-
-    </script>
-   
-
-        <script src="public/js/price-range.js">
-    </script>
-    
 </body>
 
 </html>

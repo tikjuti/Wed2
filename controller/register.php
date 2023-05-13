@@ -10,7 +10,7 @@ $phone = '';
 $date = '';
 $id = 'a';
 $popup_login = true;
-$popup_register = true;
+$popup_register = false;
 
 $erorr_display = "none";
 
@@ -40,28 +40,21 @@ if (isset($_POST['datesigup'])) {
 
 
 
-if(!empty($user_name) && !empty($password)){
-    if(checkUserExists($user_name)){
+if (!empty($user_name) && !empty($password)) {
+    if (checkUserExists($user_name)) {
         $popup_login = false;
         $popup_register = true;
         $erorr_display = "block";
         $user_error = "Username đã tồn tại";
-
-    }
-    else if(checkEmailExists($email)){
+    } else if (checkEmailExists($email)) {
         $popup_login = false;
         $popup_register = true;
         $erorr_display = "block";
         $email_error = "Email đã tồn tại";
-    }
-    else{
+    } else {
         $popup_login = true;
         $popup_register = false;
         $erorr_display = "none";
-        createUser($user_name,$password,$name,$phone,$date,$email,$address);
+        createUser($user_name, $password, $name, $phone, $date, $email, $address);
     }
-
-    
 }
-
-?>

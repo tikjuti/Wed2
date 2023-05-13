@@ -18,7 +18,7 @@
 }
 
 #user #content{
-    max-width: 900px;
+    max-width: 1100px;
     margin-left: 70px;
     margin-top: 50px;
 }
@@ -28,15 +28,23 @@
     background-color:rgba(255 250 250)	;
 }
 
-#user #content #donhang h6,th,td{
+#donhang h6,#donhang th,#donhang td{
     padding-left: 40px;
 }
 
-#user #content #donhang td{
+#donhang th,#donhang td{
     text-align: center;
 }
+#donhang td{
+    padding-bottom: 10px;
+}
 
-#form-update input[type=text],input[type=date],input[type=email]   {
+#user #content #donhang img{
+    height: 100px;
+    width: 100px;
+}
+
+#form-update input[type=text],#form-update input[type=date],#form-update input[type=email]   {
     width: 450px;
     padding: 7px 20px;
     margin: 8px 0;

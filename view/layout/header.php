@@ -45,7 +45,7 @@ $row = getCategory();
                         </li>
                     </ul>
                 </li>
-                <li class=""><a class="menuitem" href="index.php?control=giohang">Giỏ hàng</a></li>
+                <li class=""><a class="menuitem" href="index.php?control=giohang" onclick="return checkLogin();">Giỏ hàng</a></li>
                 <?php
                 if (isset($_SESSION['namekh']) && ($_SESSION['namekh'] != "")) {
                     echo ' <li><div class=" menuitem"  style="width:auto;" ><a href="index.php?control=user">' . $_SESSION['namekh'] . '</a></div></li>';

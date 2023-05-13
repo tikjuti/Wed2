@@ -3,10 +3,23 @@ require("Connect.php");
 
 function getAll()
 {
-    $sql = "SELECT * FROM sanpham";
+    $sql = "SELECT * FROM sanpham ORDER BY MaLoaiSP ASC";
     $result = (new Connnect())->select($sql);
     $row = mysqli_fetch_array($result);
     return $row;
+}
+function getAllproduct($page)
+{
+    $codepage = (($page - 1) * 4);
+    $sql = "SELECT * FROM sanpham ORDER BY MaLoaiSP ASC LIMIT 8 OFFSET $codepage";
+    $result = (new Connnect())->select($sql);
+    return $result;
+}
+function getAllproducts()
+{
+    $sql = "SELECT * FROM sanpham ORDER BY MaLoaiSP ASC";
+    $result = (new Connnect())->select($sql);
+    return $result;
 }
 function getCategory()
 {
@@ -22,26 +35,26 @@ function getProductCategory()
 }
 function getProductScreen()
 {
-    $sql = "SELECT * FROM sanpham";
+    $sql = "SELECT ManHinh FROM sanpham GROUP BY ManHinh";
     $query = (new Connnect())->select($sql);
     return $query;
 }
 
 function getProductCamera()
 {
-    $sql = "SELECT * FROM sanpham  ";
+    $sql = "SELECT Camera FROM sanpham GROUP BY Camera";
     $query = (new Connnect())->select($sql);
     return $query;
 }
 function getProductMemory()
 {
-    $sql = "SELECT * FROM sanpham  ";
+    $sql = "SELECT DungLuong FROM sanpham GROUP BY DungLuong";
     $query = (new Connnect())->select($sql);
     return $query;
 }
 function getProductChip()
 {
-    $sql = "SELECT * FROM sanpham";
+    $sql = "SELECT Chip FROM sanpham GROUP BY Chip";
     $query = (new Connnect())->select($sql);
     return $query;
 }
