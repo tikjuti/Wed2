@@ -1,4 +1,5 @@
 <?php
+
 $action = '';
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -19,8 +20,6 @@ switch ($action) {
                     $soluongsp = 1;
                 }
                 $fg = 0;
-                //kiemtrasp
-                //bị trùng
                 $i = 0;
                 foreach ($_SESSION['giohang'] as $item) {
                     if ($item[1] == $tensp) {
@@ -36,7 +35,6 @@ switch ($action) {
                     $_SESSION['giohang'][] = $item;
                 }
 
-                // header('location:index.php?list=giohang');
 
             }
             include("view/cart/cart.php");
@@ -53,30 +51,42 @@ switch ($action) {
         }
     case 'delcartproduct': {
             if (isset($_GET['i']) && ($_GET['i'] >= 0)) {
-                //xóa 1 phân phầnt tử
                 array_splice($_SESSION['giohang'], $_GET['i'], 1);
             }
             include("view/cart/cart.php");
             break;
         }
-    case 'thanhtoan':
-        if (isset($_POST['thanhtoan']) && ($_POST['thanhtoan'])) {
-            // lấy dữ liệu
-            $tongdonhang = $_POST['tongdonhang'];
-            $hoten = $_POST['hoten'];
-            $phone = $_POST['phone'];
-            $diachi = $_POST['diachi'];
-            $mahd = rand(1, 9999999);
-            // tạo đơn hàng//
-            // trả về 1 đibw hàng
-            $iddh = taomoidonhang($mahd, $tongdonhang, $hoten, $phone, $diachi);
-            // if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>0)){
-            //     foreach($_SESSION['giohang'] as $item){
-            //         addtocart($iddh)
-            //     }
-            // }
-            include("donhangthanhtoan.php");
+    case 'thanhtoan': {
+            require 'model/donhang.php';
+            if (isset($_POST['thanhtoan']) && ($_POST['thanhtoan'])) {
+                $count = count($_SESSION['soluong']);
+                $tongdonhang = $_POST['tongdonhang'];
+                $hoten = $_POST['hoten'];
+                $phone = $_POST['phone'];
+                $diachi = $_POST['diachi'];
+                $makh = $_SESSION['makh'];
+                $date = $_POST['date'];
+                $tinhtrang = 0;
+                $manv = nhanvien();
+                $mahd = taomoidonhang($makh, $manv, $date, $diachi, $hoten, $phone, $tongdonhang, $tinhtrang);
+
+                $i = 1;
+                while ($count > 1) {
+
+                    $query = cthd($mahd, $_SESSION['sanpham'][$i], $_SESSION['soluong'][$i], $_SESSION['thanhtien'][$i]);
+                    $count--;
+                    $i++;
+                }
+
+                $i = 1;
+                unset($_SESSION['soluong']);
+                unset($_SESSION['sanpham']);
+                unset($_SESSION['thanhtien']);
+                unset($_SESSION['giohang']);
+                header("Location: index.php?control=user&action=order");
+            } else {
+                include("cart/cart.php");
+            }
             break;
         }
 }
-?>

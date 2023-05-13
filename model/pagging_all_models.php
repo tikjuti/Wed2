@@ -1,11 +1,6 @@
 <?php
 include 'sanpham.php';
-$id = $_GET['id'];
 $arrayproduct = getAllproducts();
 $totalrecords = $arrayproduct->num_rows;
-$totalpage = $totalrecords % 4 == 0 ? $totalrecords / 4 : floor($totalrecords / 4) + 1;
+$totalpage = $totalrecords % 8 == 0 ? $totalrecords / 8 : floor($totalrecords / 8) + 1;
 echo (json_encode($totalpage, JSON_UNESCAPED_UNICODE));
-
-
-
-?>

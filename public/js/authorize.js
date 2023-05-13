@@ -135,7 +135,7 @@ $(document).ready(function () {
                                           'action': status
                                     },
                                       success: function () {
-                                                location.href = "http://localhost/WEDNANGCAO/view/admin/index.php?controller=authorization";
+                                                location.href = "/view/admin/index.php?controller=authorization";
                                     }
                               });
                         } else {

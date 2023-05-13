@@ -29,7 +29,7 @@ if (isset($_GET['control'])) {
                 unset($_SESSION['MaPQ']);
                 unset($_SESSION['iduser']);
                 unset($_SESSION['namekh']);
-                header('location: http://localhost/WEDNANGCAO/index.php');
+                header('location:index.php');
                 break;
             }
     }

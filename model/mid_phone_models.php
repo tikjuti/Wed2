@@ -6,11 +6,11 @@ $arrayproduct = getproductwithid($id, $page);
 $arraycodeproduct = getcodeproductwith($id);
 $data = '';
 foreach ($arrayproduct as $item) {
-    $data .= '<div class="card-product" style="width: 14rem;" style=" margin: 0rem">';
+    $data .= '<div class="card-product" style="width: 25%;" style=" margin: 0rem">';
     $data .= '<a href="index.php?control=sanphamdienthoai&id=' . $item['MaSP'] . '"style="width:100%">';
     $data .= '<div>';
     $data .= '   <img class="card-img-top p-2"
-        src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-vang-thumb-600x600.jpg"
+        src="public/image/' . $item['AnhSP'] . '"
         alt="Card image cap">';
     $data .= '</div>';
     $data .= ' </a>';

@@ -10,10 +10,8 @@
     <div>
         <p> Vui lòng đăng nhập để mua sản phẩm</p>
     </div>
-    <!-- <div class="button-login">
-        <a href="index.php">Đăng nhập</a>
-    </div> -->
 </div>
+
 
 <div class="full-page-register">
     <div id='login-form-register' class='login-page-register'>
@@ -30,22 +28,31 @@
             <form id='login-register' class='input-group-login-register' method="POST">
                 <input type='text' class='input-field-register' placeholder='Username' name="username">
                 <input type='password' class='input-field-register' placeholder='Enter Password' name="password">
-                <input type='checkbox' class='check-box-register'><span class="span-register">Remember
-                    Password</span>
                 <input type='submit' class='submit-btn-register' name="login" value="Đăng nhập">
             </form>
-            <form id='register' class='input-group-register' action="index.php?list=sigup" method="POST">
-                <input type='text' class='input-field-register' placeholder='Họ và tên' required name="usersigup">
-                <input type='email' class='input-field-register' placeholder='Email Id' required name="emailsigup">
-                <input type='number' class='input-field-register' placeholder='Số điện thoại' required name="numbersigup">
-                <input type='date' class='input-field-register' placeholder='Ngày sinh' required name="datesigup">
-                <input type='text' class='input-field-register' placeholder='Địa chỉ' required>
-                <input type='password' class='input-field-register' placeholder='Enter Password' required>
-                <input type='password' class='input-field-register' placeholder='Confirm Password' required>
-                <input type='checkbox' class='check-box-register'><span class="span-register">I agree to the terms
-                    and conditions</span>
-                <button type='submit' class='submit-btn-register'>Register</button>
+            <?php require 'controller/register.php' ?>
+            <form id='register' class='input-group-register' action="" method="POST">
+                <input type='text' class='input-field-register' placeholder='Username' required name="usersigup" id="username" value="<?php if (isset($_POST["usersigup"]) && $popup_login == false)
+                                                                                                                                            echo $_POST["usersigup"]; ?>">
+                <label class="error" style="display:<?php echo $erorr_display ?>"><?php if (!empty($user_error) && $popup_login == false)
+                                                                                        echo $user_error ?></label>
+                <input type='text' class='input-field-register' placeholder='Họ và tên' required name="namesigup" id="username" value="<?php if (isset($_POST["namesigup"]) && $popup_login == false)
+                                                                                                                                            echo $_POST["namesigup"]; ?>">
+                <input type='email' class='input-field-register' placeholder='Email Id' required name="emailsigup" id="email" value="<?php if (isset($_POST["emailsigup"]) && $popup_login == false)
+                                                                                                                                            echo $_POST["emailsigup"]; ?>">
+                <label class="error" style="display:<?php echo $erorr_display ?>"><?php if (!empty($email_error) && $popup_login == false)
+                                                                                        echo $email_error ?></label>
+                <input type='text' class='input-field-register' placeholder='Số điện thoại' required name="numbersigup" value="<?php if (isset($_POST["numbersigup"]) && $popup_login == false)
+                                                                                                                                    echo $_POST["numbersigup"]; ?>">
+                <input type='date' class='input-field-register' placeholder='Ngày sinh' required name="datesigup" value="<?php if (isset($_POST["datesigup"]) && $popup_login == false)
+                                                                                                                                echo $_POST["datesigup"]; ?>">
+                <input type='text' class='input-field-register' placeholder='Địa chỉ' required name="address" value="<?php if (isset($_POST["address"]) && $popup_login == false)
+                                                                                                                            echo $_POST["address"]; ?>">
+                <input type='password' class='input-field-register' placeholder='Enter Password' required name="password" id="password">
+                <input type='password' class='input-field-register' placeholder='Confirm Password' required name="password_confirm">
+                <button type='submit' class='submit-btn-register' id="btn-signup">Register</button>
             </form>
+
         </div>
     </div>
 </div>
@@ -55,7 +62,7 @@
 </script>
 <script type="text/javascript">
     $("#login-register").submit(function(e) {
-        // e.preventDefault();
+        e.preventDefault();
         var username = $('input[name="username"]').val();
         var password = $('input[name="password"]').val();
         $.ajax({
@@ -69,7 +76,11 @@
                 if (response == 'success')
                     location.href = "view/admin/index.php";
                 else
+                if (response == 'customer')
                     location.href = "index.php";
+                else
+                    alert("Thông tin đăng nhập không đúng");
+
             }
         })
     });

@@ -86,7 +86,7 @@ $(document).ready(function () {
                                              'action': status,
                                         },
                                     success: function () {
-                                        location.href = "http://localhost/WEDNANGCAO/view/admin/index.php?controller=import";
+                                        location.href = "/view/admin/index.php?controller=import";
                                     }
                             });
                       } else {

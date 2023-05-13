@@ -31,3 +31,6 @@
 .filter_block{
     display: block;
 }
+#click_filter{
+    cursor: pointer;
+}

@@ -8,7 +8,11 @@ $(document).ready(function() {
         rules: {
             usersigup: {
                 required: true,
-                minlength:2
+                // minlength:2
+            },
+            namesigup: {
+                required: true,
+                // minlength:2
             },
             emailsigup: {
                 required: true,
@@ -18,12 +22,13 @@ $(document).ready(function() {
                 minlength: 5
             },
             password_confirm: {
-                equalTo: '[name="password"]'
+                equalTo: "#password"
             },
             numbersigup: "required PHONE"
         },
         messages: {
-            usersigup: "Vui lòng nhập tên!",
+            usersigup: "Vui lòng nhập tên tài khoản!",
+            namesigup: "Vui lòng nhập tên!",
             emailsigup: {
                 required: "Vui lòng nhập vào email",
                 email: "Nhập đúng định dạng email"
@@ -43,3 +48,5 @@ $(document).ready(function() {
 
     
 });
+
+

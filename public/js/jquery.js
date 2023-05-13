@@ -60,15 +60,27 @@ function paginationsearch(search) {
 
   })
 }
-function pagination() {
+
+function readd(){
   $.ajax({
-    url: 'model/pagging_models.php',
+    url: 'model/load_data.php',
     type: 'get',
     data: {
-      id:id
+      page:page
     },
     success: function (data) {
+      $('#total').empty(data);
+      $('#total').append(data);
+     
+    }
 
+  })
+}
+function paginationall() {
+  $.ajax({
+    url: 'model/pagging_all_models.php',
+    type: 'get',
+    success: function (data) {
     if(data<=1){
       $('#midpagination').hide();
 

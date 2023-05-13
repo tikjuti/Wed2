@@ -47,12 +47,11 @@ if ($count == 0) {
 	<?php
 	foreach ($products as $item) {
 		?>
-		<div class="card-product" style="width: 14rem;" style=" margin: 0rem">
+		<div class="card-product" style="width:25%;" style=" margin: 0rem">
 			<a href="index.php?list=sanphamdienthoai&id=<?php echo $item['MaSP'] ?>" style="width:100%">
 				<div>
-					<img class="card-img-top p-2"
-						src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-vang-thumb-600x600.jpg"
-						alt="Card image cap">
+					<img class="card-img-top p-2" src="public/image/<?php echo $a = $item['AnhSP'] ?>" alt="Card image cap">
+					<?php echo $item['AnhSP'] ?>
 				</div>
 			</a>
 			<div class="card-body">
@@ -71,7 +70,7 @@ if ($count == 0) {
 				<p class="card-text product">
 					<?php echo $item['GiaSP'] ?>
 				</p>
-				<a href="index.php?list=sanphamdienthoai&id=<?php echo $item['MaSP'] ?>"
+				<a href="index.php?control=sanphamdienthoai&id=<?php echo $item['MaSP'] ?>"
 					class="btn btn-primary d-flex justify-content-center">Mua ngay</a>
 			</div>
 		</div>

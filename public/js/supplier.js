@@ -92,7 +92,7 @@ $(document).ready(function () {
                                         'action': status
                                   },
                                     success: function () {
-                                        location.href = "http://localhost/WEDNANGCAO/view/admin/index.php?controller=supplier";
+                                        location.href = "/view/admin/index.php?controller=supplier";
                                   }
                             });
                       } else {
@@ -199,7 +199,7 @@ $(document).ready(function () {
                                         'action': status
                                   },
                                     success: function () {
-                                        location.href = "http://localhost/WEDNANGCAO/view/admin/index.php?controller=supplier";
+                                        location.href = "/view/admin/index.php?controller=supplier";
                                   }
                             });
                       } else {

@@ -1,5 +1,5 @@
 <?php
-
+require './model/Connect.php';
 // if(!isset($_SESSION['giohang']))
 // {
 //     $_SESSION['giohang']=[];
@@ -70,14 +70,16 @@ if (isset($_GET['list'])) {
                     //kiemtrasp
                     //bị trùng
                     $i = 0;
-                    foreach ($_SESSION['giohang'] as $item) {
-                        if ($item[1] == $tensp) {
-                            $soluongmoi = $soluongsp + $item[3];
-                            $_SESSION['giohang'][$i][3] = $soluongmoi;
-                            $fg = 1;
-                            break;
+                    if (isset($_SESSION['giohang'])) {
+                        foreach ($_SESSION['giohang'] as $item) {
+                            if ($item[1] == $tensp) {
+                                $soluongmoi = $soluongsp + $item[3];
+                                $_SESSION['giohang'][$i][3] = $soluongmoi;
+                                $fg = 1;
+                                break;
+                            }
+                            $i++;
                         }
-                        $i++;
                     }
                     if ($fg == 0) {
                         $item = array($masp, $tensp, $giasp, $soluongsp);
@@ -121,15 +123,32 @@ if (isset($_GET['list'])) {
                 $hoten = $_POST['hoten'];
                 $phone = $_POST['phone'];
                 $diachi = $_POST['diachi'];
-                $mahd = rand(1, 9999999);
+                $mnv = nhanvien();
+                $makh = $_SESSION['makh'];
+                $date = $_SESSION['date'];
+
+                $tinhtrang = 0;
+                $mahd = taomoidonhang($makh, $mnv, $date, $diachi, $hoten, $phone, $tongdonhang, $tinhtrang);
+                $a = $_SESSION['soluong'];
+                $b = $_SESSION['sanpham'];
+                $c = $_SESSION['thanhtien'];
+                $count = count($a);
+                $i = 1;
+                while ($count > 1) {
+                    $ct = cthd($mahd, $b[$i], $a[$i], $c[$i]);
+                }
                 // tạo đơn hàng//
                 // trả về 1 đibw hàng
-                $iddh = taomoidonhang($mahd, $tongdonhang, $hoten, $phone, $diachi);
+
                 // if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>0)){
                 //     foreach($_SESSION['giohang'] as $item){
                 //         addtocart($iddh)
                 //     }
                 // }
+                unset($_SESSION['giohang']);
+                unset($_SESSION['soluong']);
+                unset($_SESSION['sanpham']);
+                unset($_SESSION['thanhtien']);
                 include("donhangthanhtoan.php");
                 break;
             }

@@ -16,18 +16,12 @@
         <div class="container pt-5 pb-5 pl-2">
             <div class="row">
                 <div class=" d-flex col-md-3 align-items-center">
-                    <h3 class="font-weight-bold text-uppercase">SGUMOBILEPHONE</h3>
+                    <h3 class="font-weight-bold text-uppercase">MOBILEPHONE</h3>
                 </div>
                 <div class="col-md-3">
                     <h3 class="font-weight-bold ">Liên Hệ</h3>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
-                    <div>Hotline 1:000000000</div>
+                    <div>Hotline 1:0867575163</div>
+                    <div>Hotline 1:0343198716</div>
                 </div>
                 <div class="col-md-3">
                     <h3 class="font-weight-bold ">Địa chỉ</h3>
